@@ -159,7 +159,7 @@ function App() {
       </section>
 
       {/* Custom Photography Showcase */}
-      <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
+      <section className="relative h-[50vh] md:h-[60vh] overflow-hidden mt-12 md:mt-16">
         <img
           src="/IMG_1132_(Custom).jpg"
           alt="Hinge Custom cabinetry detail"
@@ -170,7 +170,7 @@ function App() {
       </section>
 
       {/* Custom Series Section */}
-      <section id="custom" ref={custom.ref} className="py-24 md:py-32 bg-white">
+      <section id="custom" ref={custom.ref} className="pt-8 pb-24 md:pt-10 md:pb-32 bg-white">
         <div className={`max-w-7xl mx-auto px-6 md:px-12 lg:px-20 transition-all duration-700 ${custom.inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
