@@ -1,14 +1,75 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const slides = [
-  { src: '/soren_00.jpg', alt: 'Hinge cabinetry installation — Erving door style' },
-  { src: '/soren_02.jpg', alt: 'Hinge cabinetry detail — Iverson door style' },
-  { src: '/soren_06.jpg', alt: 'Hinge custom kitchen — Erving and Iverson doors' },
-  { src: '/soren_07.jpg', alt: 'Hinge custom cabinetry project' },
-  { src: '/IMG_1077_(Custom).jpg', alt: 'Hinge Custom Series installation' },
-  { src: '/IMG_1151_(Custom).jpg', alt: 'Hinge Custom Series cabinetry detail' },
+type DoorName = 'Erving' | 'Iverson';
+type FinishKind = 'stain' | 'paint';
+interface SlideTag {
+  door: DoorName;
+  finish: { kind: FinishKind; name: string; label: string };
+}
+
+const slides: { src: string; alt: string; tags: SlideTag[] }[] = [
+  {
+    src: '/soren_00.jpg',
+    alt: 'Hinge cabinetry installation — Iverson door style',
+    tags: [{ door: 'Iverson', finish: { kind: 'paint', name: 'White Sesame', label: 'ColorDrop · White Sesame SW 9586' } }],
+  },
+  {
+    src: '/soren_02.jpg',
+    alt: 'Hinge cabinetry detail — Erving and Iverson door styles',
+    tags: [
+      { door: 'Erving', finish: { kind: 'stain', name: 'Rye', label: 'Ztain · Rye' } },
+      { door: 'Iverson', finish: { kind: 'paint', name: 'White Sesame', label: 'ColorDrop · White Sesame SW 9586' } },
+    ],
+  },
+  {
+    src: '/soren_06.jpg',
+    alt: 'Hinge custom kitchen — Erving and Iverson doors',
+    tags: [
+      { door: 'Erving', finish: { kind: 'stain', name: 'Rye', label: 'Ztain · Rye' } },
+      { door: 'Iverson', finish: { kind: 'paint', name: 'White Sesame', label: 'ColorDrop · White Sesame SW 9586' } },
+    ],
+  },
+  {
+    src: '/soren_07.jpg',
+    alt: 'Hinge custom cabinetry project — Erving and Iverson',
+    tags: [
+      { door: 'Erving', finish: { kind: 'stain', name: 'Rye', label: 'Ztain · Rye' } },
+      { door: 'Iverson', finish: { kind: 'paint', name: 'White Sesame', label: 'ColorDrop · White Sesame SW 9586' } },
+    ],
+  },
+  {
+    src: '/IMG_1077_(Custom).jpg',
+    alt: 'Hinge Custom Series installation — Iverson',
+    tags: [{ door: 'Iverson', finish: { kind: 'paint', name: 'White Sesame', label: 'ColorDrop · White Sesame SW 9586' } }],
+  },
+  {
+    src: '/IMG_1132_(Custom).jpg',
+    alt: 'Hinge Custom Series cabinetry detail — Iverson',
+    tags: [
+      { door: 'Iverson', finish: { kind: 'paint', name: 'White Sesame', label: 'ColorDrop · White Sesame SW 9586' } },
+      { door: 'Erving', finish: { kind: 'stain', name: 'Rye', label: 'Ztain · Rye' } },
+    ],
+  },
+  {
+    src: '/IMG_1151_(Custom).jpg',
+    alt: 'Hinge Custom Series cabinetry detail — Erving and Iverson',
+    tags: [
+      { door: 'Erving', finish: { kind: 'stain', name: 'Rye', label: 'Ztain · Rye' } },
+      { door: 'Iverson', finish: { kind: 'paint', name: 'White Sesame', label: 'ColorDrop · White Sesame SW 9586' } },
+    ],
+  },
 ];
+
+function selectDoor(name: string) {
+  document.getElementById('doors')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  window.dispatchEvent(new CustomEvent('hinge:select-door', { detail: { name } }));
+}
+
+function selectFinish(kind: FinishKind, name: string) {
+  document.getElementById('finishes')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  window.dispatchEvent(new CustomEvent('hinge:select-finish', { detail: { kind, name } }));
+}
 
 export default function ProjectCarousel() {
   const [current, setCurrent] = useState(0);
@@ -39,6 +100,8 @@ export default function ProjectCarousel() {
     return () => { if (timerRef.current) clearTimeout(timerRef.current); };
   }, [current, next]);
 
+  const activeTags = slides[current].tags;
+
   return (
     <div className="relative rounded-xl overflow-hidden aspect-[16/9] bg-neutral-100 group select-none">
       {/* Slides */}
@@ -60,7 +123,27 @@ export default function ProjectCarousel() {
             />
           </div>
         ))}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent z-20 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-20 pointer-events-none" />
+      </div>
+
+      {/* Clickable tags */}
+      <div className="absolute bottom-4 left-4 z-30 flex flex-col gap-1.5 max-w-[70%]">
+        {activeTags.map((tag, idx) => (
+          <div key={`${tag.door}-${idx}`} className="flex flex-wrap items-center gap-1.5">
+            <button
+              onClick={() => selectDoor(tag.door)}
+              className="inline-flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-brand-charcoal text-[11px] font-semibold px-2.5 py-1 rounded-full shadow-sm hover:bg-white transition-colors"
+            >
+              {tag.door}
+            </button>
+            <button
+              onClick={() => selectFinish(tag.finish.kind, tag.finish.name)}
+              className="inline-flex items-center gap-1.5 bg-black/45 backdrop-blur-sm text-white text-[10px] font-medium px-2.5 py-1 rounded-full hover:bg-black/65 transition-colors"
+            >
+              {tag.finish.label}
+            </button>
+          </div>
+        ))}
       </div>
 
       {/* Prev / Next */}
@@ -80,7 +163,7 @@ export default function ProjectCarousel() {
       </button>
 
       {/* Dots */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1.5">
+      <div className="absolute bottom-4 right-4 z-30 flex items-center gap-1.5">
         {slides.map((_, i) => (
           <button
             key={i}

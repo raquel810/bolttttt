@@ -290,9 +290,6 @@ function App() {
             {/* Custom Project Carousel */}
             <div>
               <ProjectCarousel />
-              <p className="text-white/40 text-xs text-center mt-3 tracking-wide">
-                Doors shown: Erving &amp; Iverson profiles
-              </p>
             </div>
           </div>
         </div>

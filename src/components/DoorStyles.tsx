@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface DoorStyle {
   name: string;
@@ -127,6 +127,17 @@ const doorStyles: DoorStyle[] = [
 
 export default function DoorStyles() {
   const [selected, setSelected] = useState<DoorStyle>(doorStyles[0]);
+
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const detail = (e as CustomEvent).detail;
+      if (!detail || !detail.name) return;
+      const match = doorStyles.find((d) => d.name === detail.name);
+      if (match) setSelected(match);
+    };
+    window.addEventListener('hinge:select-door', handler);
+    return () => window.removeEventListener('hinge:select-door', handler);
+  }, []);
 
   return (
     <div>

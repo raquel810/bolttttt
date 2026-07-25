@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface PaintFinish {
   name: string;
@@ -6,6 +6,7 @@ interface PaintFinish {
   textLight?: boolean;
   tags: string[];
   description: string;
+  custom?: boolean;
 }
 
 interface StainFinish {
@@ -81,6 +82,13 @@ const paintFinishes: PaintFinish[] = [
     tags: ['Avant-Garde', 'High-Contrast', 'Stealth Luxury'],
     description: 'A deep, dramatic charcoal-black. Delivers maximum architectural impact and razor-sharp shadow lines across flush cabinet configurations.',
   },
+  {
+    name: 'White Sesame',
+    hex: '#EDE7DA',
+    tags: ['ColorDrop Custom', 'Sherwin-Williams', 'Warm Neutral'],
+    description: 'A custom ColorDrop match of Sherwin-Williams White Sesame (SW 9586) — a soft, sun-warmed alabaster with a whisper of warm beige. Brings a quietly tailored, luminous warmth to painted perimeter cabinetry.',
+    custom: true,
+  },
 ];
 
 const stainFinishes: StainFinish[] = [
@@ -150,6 +158,30 @@ export default function ColorPalette() {
   const [activeTab, setActiveTab] = useState<'paint' | 'stain'>('stain');
   const [selectedPaint, setSelectedPaint] = useState<PaintFinish | null>(null);
   const [selectedStain, setSelectedStain] = useState<StainFinish | null>(null);
+
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const detail = (e as CustomEvent).detail;
+      if (!detail || !detail.kind) return;
+      if (detail.kind === 'stain') {
+        const match = stainFinishes.find((s) => s.name === detail.name);
+        if (match) {
+          setActiveTab('stain');
+          setSelectedPaint(null);
+          setSelectedStain(match);
+        }
+      } else if (detail.kind === 'paint') {
+        const match = paintFinishes.find((p) => p.name === detail.name);
+        if (match) {
+          setActiveTab('paint');
+          setSelectedStain(null);
+          setSelectedPaint(match);
+        }
+      }
+    };
+    window.addEventListener('hinge:select-finish', handler);
+    return () => window.removeEventListener('hinge:select-finish', handler);
+  }, []);
 
   return (
     <div>
