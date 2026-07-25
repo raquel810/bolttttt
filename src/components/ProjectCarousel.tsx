@@ -18,7 +18,7 @@ const slides: { src: string; alt: string; tags: SlideTag[] }[] = [
     src: '/soren_02.jpg',
     alt: 'Hinge cabinetry detail — Erving and Iverson door styles',
     tags: [
-      { door: 'Erving', finish: { kind: 'stain', name: 'Rye', label: 'Ztain · Rye' } },
+      { door: 'Erving', finish: { kind: 'stain', name: 'Rye', label: 'Stain · Rye' } },
       { door: 'Iverson', finish: { kind: 'paint', name: 'White Sesame', label: 'ColorDrop · White Sesame SW 9586' } },
     ],
   },
