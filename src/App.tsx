@@ -403,7 +403,7 @@ function App() {
       {/* Photography Divider */}
       <section className="relative h-[40vh] md:h-[50vh] overflow-hidden">
         <img
-          src="/IMG_5198-3_(Custom).jpg"
+          src="/IMG_5198-3.jpg"
           alt="Hinge cabinetry craftsmanship"
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"
@@ -411,6 +411,32 @@ function App() {
         <div className="absolute inset-0 bg-brand-ink/40"></div>
         <div className="absolute inset-0 flex items-center justify-center">
           <img src="/hinge222.png" alt="Hinge product" className="h-32 md:h-48 w-auto object-contain drop-shadow-2xl" loading="lazy" />
+        </div>
+      </section>
+
+      {/* Kitchen Gallery */}
+      <section className="py-24 md:py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+          <div className="text-center mb-16">
+            <p className="text-neutral-400 text-xs tracking-[0.3em] uppercase mb-3">Real Installations</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-charcoal mb-4">Crafted for Real Spaces</h2>
+            <p className="text-neutral-500 max-w-lg mx-auto">A look at Hinge cabinetry installed in homes across the country—where precision engineering meets everyday living.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            <div className="rounded-xl overflow-hidden aspect-[4/3] group">
+              <img src="/IMG_7736-watermarked.jpg" alt="Hinge kitchen installation" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+            </div>
+            <div className="rounded-xl overflow-hidden aspect-[4/3] group">
+              <img src="/IMG_5195.jpg" alt="Hinge custom kitchen" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+            </div>
+            <div className="rounded-xl overflow-hidden aspect-[4/3] group">
+              <img src="/IMG_7726-watermarked.jpg" alt="Hinge frameless cabinetry" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+            </div>
+            <div className="rounded-xl overflow-hidden aspect-[4/3] group">
+              <img src="/IMG_5198-3.jpg" alt="Hinge cabinetry craftsmanship" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+            </div>
+          </div>
         </div>
       </section>
 
