@@ -1,7 +1,7 @@
 import { useState, FormEvent } from 'react';
 import { Send, CheckCircle, AlertCircle, ArrowLeft, Building2, MapPin, Phone, Mail, User } from 'lucide-react';
 
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mrenyezr';
+
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -16,22 +16,19 @@ export default function DealerPage() {
 
     const form = e.currentTarget;
     const data = new FormData(form);
-    data.append('_subject', 'Dealer Inquiry');
-    data.append('inquiry_type', 'dealer');
 
     try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
+      const res = await fetch('/', {
         method: 'POST',
-        body: data,
-        headers: { Accept: 'application/json' },
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data as unknown as Record<string, string>).toString(),
       });
 
       if (res.ok) {
         setStatus('success');
         form.reset();
       } else {
-        const json = await res.json();
-        setErrorMessage(json?.errors?.[0]?.message || 'Something went wrong. Please try again.');
+        setErrorMessage('Something went wrong. Please try again.');
         setStatus('error');
       }
     } catch {
@@ -125,7 +122,13 @@ export default function DealerPage() {
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6" data-netlify="true" name="Dealer Inquiry">
+              <input type="hidden" name="form-name" value="Dealer Inquiry" />
+              <p className="hidden">
+                <label>
+                  Don't fill this out: <input name="bot-field" />
+                </label>
+              </p>
               {/* Contact Name */}
               <div>
                 <label htmlFor="dealer-name" className="flex items-center gap-2 text-sm font-medium text-brand-charcoal mb-2">

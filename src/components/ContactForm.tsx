@@ -1,8 +1,6 @@
 import { useState, FormEvent } from 'react';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xwvgbjqp';
-
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
 export default function ContactForm() {
@@ -18,18 +16,17 @@ export default function ContactForm() {
     const data = new FormData(form);
 
     try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
+      const res = await fetch('/', {
         method: 'POST',
-        body: data,
-        headers: { Accept: 'application/json' },
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data as unknown as Record<string, string>).toString(),
       });
 
       if (res.ok) {
         setStatus('success');
         form.reset();
       } else {
-        const json = await res.json();
-        setErrorMessage(json?.errors?.[0]?.message || 'Something went wrong. Please try again.');
+        setErrorMessage('Something went wrong. Please try again.');
         setStatus('error');
       }
     } catch {
@@ -59,7 +56,14 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8">
+    <form onSubmit={handleSubmit} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8" data-netlify="true" name="Request a Quote">
+      <input type="hidden" name="form-name" value="Request a Quote" />
+      <p className="hidden">
+        <label>
+          Don't fill this out: <input name="bot-field" />
+        </label>
+      </p>
+
       <h3 className="text-white text-lg font-semibold mb-1">Request a Quote</h3>
       <p className="text-white/40 text-sm mb-6">Tell us about your project and we'll get back to you promptly.</p>
 

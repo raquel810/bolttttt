@@ -21,6 +21,23 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   </head>
   <body>
+    <!-- Hidden Netlify form declarations for bot detection -->
+    <form name="Request a Quote" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <select name="series"></select>
+      <textarea name="message"></textarea>
+    </form>
+    <form name="Dealer Inquiry" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="text" name="business_name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="location" />
+      <textarea name="message"></textarea>
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
