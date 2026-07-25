@@ -93,7 +93,7 @@ const doorStyles: DoorStyle[] = [
   {
     name: 'Bryant',
     profile: '/bryant_profile.png',
-    full: '/bryant copy.png',
+    full: '/bryant.png',
     category: 'Flat-Panel Mitered',
     construction: 'Mitered',
     overlay: 'Full Overlay',
