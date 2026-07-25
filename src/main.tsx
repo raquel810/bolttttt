@@ -13,6 +13,12 @@ function Router() {
     return () => window.removeEventListener('hashchange', onHash);
   }, []);
 
+  useEffect(() => {
+    if (page === '#dealers') {
+      window.scrollTo(0, 0);
+    }
+  }, [page]);
+
   if (page === '#dealers') {
     return <DealerPage />;
   }
