@@ -6,6 +6,7 @@ import DoorStyles from './components/DoorStyles';
 import PremiumPrograms from './components/PremiumPrograms';
 import ContactForm from './components/ContactForm';
 import ProDoorSelector from './components/ProDoorSelector';
+import ProjectCarousel from './components/ProjectCarousel';
 
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -286,14 +287,12 @@ function App() {
             {/* Exclusive Premium Programs */}
             <PremiumPrograms />
 
-            {/* Custom Photography */}
-            <div className="grid grid-cols-2 gap-3">
-              <div className="rounded-xl overflow-hidden aspect-[4/3]">
-                <img src="/IMG_1077_(Custom).jpg" alt="Custom cabinetry installation" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
-              </div>
-              <div className="rounded-xl overflow-hidden aspect-[4/3]">
-                <img src="/IMG_1151_(Custom).jpg" alt="Custom cabinetry detail" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
-              </div>
+            {/* Custom Project Carousel */}
+            <div>
+              <ProjectCarousel />
+              <p className="text-white/40 text-xs text-center mt-3 tracking-wide">
+                Doors shown: Erving &amp; Iverson profiles
+              </p>
             </div>
           </div>
         </div>
