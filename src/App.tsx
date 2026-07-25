@@ -159,7 +159,7 @@ function App() {
       </section>
 
       {/* Custom Photography Showcase */}
-      <section className="relative h-[50vh] md:h-[60vh] overflow-hidden mt-12 md:mt-16">
+      <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
         <img
           src="/IMG_1132_(Custom).jpg"
           alt="Hinge Custom cabinetry detail"
