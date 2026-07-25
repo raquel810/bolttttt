@@ -110,7 +110,7 @@ const stainFinishes: StainFinish[] = [
   },
   {
     name: 'Reed',
-    image: '/Untitled_-_July_18,_2026_at_14.41.46-7-reed.png',
+    image: '/Untitled - July 18, 2026 at 14.41.46-7-reed.png',
     tags: ['Textural Elegance', 'Tactile Minimalist', 'Architectural Depth'],
     description: 'A sophisticated, medium amber-brown finish that accentuates deep, linear grain layers. It delivers an incredibly rich, tactile dimension that prevents large expanses of custom frameless millwork from looking flat.',
   },
@@ -128,7 +128,7 @@ const stainFinishes: StainFinish[] = [
   },
   {
     name: 'Pumice',
-    image: '/Untitled_-_July_18,_2026_at_14.41.46-9-pumice.png',
+    image: '/Untitled - July 18, 2026 at 14.41.46-9-pumice.png',
     tags: ['Earthy Modern', 'Desert Minimalist', 'Restrained Luxury'],
     description: 'A desaturated, muted clay-taupe stain inspired by weathered natural stone. It beautifully balances raw wood character with clean, modern minimalism, pairing effortlessly with heavily veined marble details.',
   },
