@@ -16,7 +16,7 @@ const doorStyles: DoorStyle[] = [
   {
     name: 'Erving',
     profile: '/erving_profile.png',
-    full: '/erving.PNG',
+    full: '/erving_hc-door.jpg',
     category: 'Slab',
     construction: 'Slab',
     overlay: 'Full Overlay',
@@ -27,7 +27,7 @@ const doorStyles: DoorStyle[] = [
   {
     name: 'Iverson',
     profile: '/iverson_profile.png',
-    full: '/iverson.PNG',
+    full: '/iverson_hc-door.jpg',
     category: 'Flat-Panel Mitered',
     construction: 'Mitered',
     overlay: 'Full Overlay',
@@ -38,7 +38,7 @@ const doorStyles: DoorStyle[] = [
   {
     name: 'Sanders',
     profile: '/sanders_profile.png',
-    full: '/sanders.png',
+    full: '/sanders_hc-door.jpg',
     category: 'Flat-Panel Mitered',
     construction: 'Mitered',
     overlay: 'Full Overlay',
@@ -49,7 +49,7 @@ const doorStyles: DoorStyle[] = [
   {
     name: 'Duncan',
     profile: '/duncan_profile.png',
-    full: '/DUNCAN.jpg',
+    full: '/duncan_hc-door.jpg',
     category: 'Flat-Panel Mortise & Tenon',
     construction: 'Mortise & Tenon',
     overlay: 'Full Overlay',
@@ -60,7 +60,7 @@ const doorStyles: DoorStyle[] = [
   {
     name: 'James',
     profile: '/james_profile.png',
-    full: '/james.PNG',
+    full: '/james_hc-door.jpg',
     category: 'Flat-Panel Mortise & Tenon',
     construction: 'Mortise & Tenon',
     overlay: 'Full Overlay',
@@ -71,7 +71,7 @@ const doorStyles: DoorStyle[] = [
   {
     name: 'Payton',
     profile: '/payton_profile.png',
-    full: '/payton.png',
+    full: '/payton_hc-door.jpg',
     category: 'Flat-Panel Mitered',
     construction: 'Mitered',
     overlay: 'Full Overlay',
@@ -82,7 +82,7 @@ const doorStyles: DoorStyle[] = [
   {
     name: 'Jordan',
     profile: '/jordan_profile.png',
-    full: '/proper-jordan.png',
+    full: '/jordan_hc-door.jpg',
     category: 'Flat-Panel Mitered',
     construction: 'Mitered',
     overlay: 'Full Overlay',
@@ -93,7 +93,7 @@ const doorStyles: DoorStyle[] = [
   {
     name: 'Bryant',
     profile: '/bryant_profile.png',
-    full: '/bryant.png',
+    full: '/bryant_hc-door.jpg',
     category: 'Flat-Panel Mitered',
     construction: 'Mitered',
     overlay: 'Full Overlay',
@@ -104,7 +104,7 @@ const doorStyles: DoorStyle[] = [
   {
     name: 'Taylor',
     profile: '/taylor_profile.png',
-    full: '/taylor.png',
+    full: '/taylor_hc-door.jpg',
     category: 'Flat-Panel Mitered',
     construction: 'Mitered',
     overlay: 'Full Overlay',
@@ -115,7 +115,7 @@ const doorStyles: DoorStyle[] = [
   {
     name: 'Russell',
     profile: '/russell_profile.png',
-    full: '/russell.png',
+    full: '/russell_hc-door.jpg',
     category: 'Flat-Panel Mitered',
     construction: 'Mitered',
     overlay: 'Full Overlay',

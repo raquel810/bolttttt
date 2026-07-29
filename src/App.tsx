@@ -229,10 +229,10 @@ function App() {
               <h4 className="text-white/60 text-xs tracking-[0.2em] uppercase mb-5">Material Selection</h4>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  { name: 'Maple', image: '/images/materials/maple.jpeg', hardness: 90, stability: 85, grain: 55 },
-                  { name: 'Cherry', image: '/images/materials/cherry.jpeg', hardness: 65, stability: 80, grain: 72 },
-                  { name: 'White Oak', image: '/images/materials/whiteoak.jpeg', hardness: 85, stability: 70, grain: 92 },
-                  { name: 'High-Density Fiberboard', image: null, hardness: 78, stability: 95, grain: 10 },
+                  { name: 'Maple', image: '/images/materials/maple.jpg', hardness: 90, stability: 85, grain: 55 },
+                  { name: 'Cherry', image: '/images/materials/cherry.jpg', hardness: 65, stability: 80, grain: 72 },
+                  { name: 'White Oak', image: '/images/materials/white-oak.jpg', hardness: 85, stability: 70, grain: 92 },
+                  { name: 'High-Density Fiberboard', image: '/images/materials/hdf.jpg', hardness: 78, stability: 95, grain: 10 },
                 ].map((material) => (
                   <div key={material.name} className="bg-white/5 border border-white/10 rounded-lg overflow-hidden flex">
                     <div className="w-24 h-24 flex-shrink-0 bg-white/5">
