@@ -406,9 +406,6 @@ function App() {
           loading="lazy"
         />
         <div className="absolute inset-0 bg-brand-ink/40"></div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <img src="/hinge222.png" alt="Hinge product" className="h-32 md:h-48 w-auto object-contain drop-shadow-2xl" loading="lazy" />
-        </div>
       </section>
 
       {/* Kitchen Gallery */}
