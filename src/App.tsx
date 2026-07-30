@@ -115,14 +115,6 @@ function App() {
         </div>
 
         <div className={`relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-20 w-full h-screen flex flex-col justify-end pb-16 md:pb-20 transition-all duration-1000 ${hero.inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-          {/* Logo */}
-          <img
-            src="/hinge22.png"
-            alt="Hinge Cabinetry"
-            className="h-10 md:h-14 w-auto object-contain mb-6"
-            loading="eager"
-          />
-
           {/* Headline */}
           <h1 className="font-serif font-normal text-3xl md:text-5xl lg:text-6xl text-white leading-[1.15] mb-4">
             Frameless Custom<br />Cabinetry
@@ -304,10 +296,7 @@ function App() {
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-brand-ink/50"></div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <img src="/hinge-pro-logo-white.png" alt="Hinge Pro" className="h-16 md:h-24 w-auto object-contain drop-shadow-2xl" loading="lazy" />
-        </div>
+        <div className="absolute inset-0 bg-brand-ink/40"></div>
       </section>
 
       {/* Pro Series Section */}
