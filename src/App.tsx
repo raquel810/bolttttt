@@ -104,7 +104,7 @@ function App() {
         {/* Full-bleed cabinet photo */}
         <div className="absolute inset-0">
           <img
-            src="/IMG_7726-watermarked.jpg"
+            src="/erving_hc-project4-2.jpg"
             alt="Hinge custom frameless cabinetry"
             className="absolute inset-0 w-full h-full object-cover"
             loading="eager"
@@ -162,7 +162,7 @@ function App() {
       {/* Custom Photography Showcase */}
       <section className="relative h-[50vh] md:h-[60vh] overflow-hidden mt-12 md:mt-16">
         <img
-          src="/IMG_1132_(Custom).jpg"
+          src="/erving_hc-project4.jpg"
           alt="Hinge Custom cabinetry detail"
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"
@@ -298,7 +298,7 @@ function App() {
       {/* Pro Series Hero */}
       <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
         <img
-          src="/image_(3).png"
+          src="/briar_hingepro-projectexample.jpg"
           alt="Hinge Pro kitchen installation"
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"
@@ -306,6 +306,24 @@ function App() {
         <div className="absolute inset-0 bg-brand-ink/50"></div>
         <div className="absolute inset-0 flex items-center justify-center">
           <img src="/hinge-pro-logo-white.png" alt="Hinge Pro" className="h-16 md:h-24 w-auto object-contain drop-shadow-2xl" loading="lazy" />
+        </div>
+      </section>
+
+      {/* Pro Series Project Examples */}
+      <section className="bg-surface-platinum pt-12 md:pt-16">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+          <p className="text-center text-pro-rust text-xs tracking-[0.3em] uppercase mb-6">Installed Pro Projects</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+            <div className="rounded-xl overflow-hidden aspect-[4/3] group">
+              <img src="/briar_hingepro-projectexample.jpg" alt="Hinge Pro kitchen with dark island" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+            </div>
+            <div className="rounded-xl overflow-hidden aspect-[4/3] group">
+              <img src="/tannin_hingepro-projectexample.jpg" alt="Hinge Pro natural wood cabinetry" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+            </div>
+            <div className="rounded-xl overflow-hidden aspect-[4/3] group">
+              <img src="/pitch-jordan_hingepro-projectexample.jpg" alt="Hinge Pro dark wet bar with brass hardware" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -399,7 +417,7 @@ function App() {
       {/* Photography Divider */}
       <section className="relative h-[40vh] md:h-[50vh] overflow-hidden">
         <img
-          src="/IMG_5198-3.jpg"
+          src="/erving_hc-project3.jpg"
           alt="Hinge cabinetry craftsmanship"
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"
@@ -421,16 +439,16 @@ function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <div className="rounded-xl overflow-hidden aspect-[4/3] group">
-              <img src="/IMG_7736-watermarked.jpg" alt="Hinge kitchen installation" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+              <img src="/erving_hc-project3-2.jpg" alt="Hinge kitchen installation" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
             </div>
             <div className="rounded-xl overflow-hidden aspect-[4/3] group">
-              <img src="/IMG_5195.jpg" alt="Hinge custom kitchen" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+              <img src="/erving_hc-project2.jpg" alt="Hinge custom kitchen" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
             </div>
             <div className="rounded-xl overflow-hidden aspect-[4/3] group">
-              <img src="/IMG_7726-watermarked.jpg" alt="Hinge frameless cabinetry" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+              <img src="/tannin_hingepro-projectexample.jpg" alt="Hinge frameless cabinetry" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
             </div>
             <div className="rounded-xl overflow-hidden aspect-[4/3] group">
-              <img src="/IMG_5198-3.jpg" alt="Hinge cabinetry craftsmanship" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+              <img src="/pitch-jordan_hingepro-projectexample.jpg" alt="Hinge cabinetry craftsmanship" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
             </div>
           </div>
         </div>

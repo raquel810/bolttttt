@@ -8,56 +8,81 @@ interface SlideTag {
   finish: { kind: FinishKind; name: string; label: string };
 }
 
+const IV_TAG: SlideTag['finish'] = { kind: 'paint', name: 'White Sesame', label: 'ColorDrop · White Sesame SW 9586' };
+const ER_TAG: SlideTag['finish'] = { kind: 'stain', name: 'Rye', label: 'Stain · Rye' };
+
 const slides: { src: string; alt: string; tags: SlideTag[] }[] = [
   {
-    src: '/soren_00.jpg',
-    alt: 'Hinge cabinetry installation — Iverson door style',
-    tags: [{ door: 'Iverson', finish: { kind: 'paint', name: 'White Sesame', label: 'ColorDrop · White Sesame SW 9586' } }],
-  },
-  {
-    src: '/soren_02.jpg',
-    alt: 'Hinge cabinetry detail — Erving and Iverson door styles',
+    src: '/iverson-erving_hc-project_00.jpg',
+    alt: 'Hinge custom kitchen — Iverson perimeter cabinetry with Erving island',
     tags: [
-      { door: 'Erving', finish: { kind: 'stain', name: 'Rye', label: 'Stain · Rye' } },
-      { door: 'Iverson', finish: { kind: 'paint', name: 'White Sesame', label: 'ColorDrop · White Sesame SW 9586' } },
+      { door: 'Iverson', finish: IV_TAG },
+      { door: 'Erving', finish: ER_TAG },
     ],
   },
   {
-    src: '/soren_06.jpg',
-    alt: 'Hinge custom kitchen — Erving and Iverson doors',
+    src: '/iverson-erving_hc-project_01.jpg',
+    alt: 'Hinge custom kitchen — Iverson and Erving door styles',
     tags: [
-      { door: 'Erving', finish: { kind: 'stain', name: 'Rye', label: 'Ztain · Rye' } },
-      { door: 'Iverson', finish: { kind: 'paint', name: 'White Sesame', label: 'ColorDrop · White Sesame SW 9586' } },
+      { door: 'Iverson', finish: IV_TAG },
+      { door: 'Erving', finish: ER_TAG },
     ],
   },
   {
-    src: '/soren_07.jpg',
-    alt: 'Hinge custom cabinetry project — Erving and Iverson',
+    src: '/iverson-erving_hc-project_03.jpg',
+    alt: 'Hinge custom kitchen — Iverson perimeter with Erving island detail',
     tags: [
-      { door: 'Erving', finish: { kind: 'stain', name: 'Rye', label: 'Ztain · Rye' } },
-      { door: 'Iverson', finish: { kind: 'paint', name: 'White Sesame', label: 'ColorDrop · White Sesame SW 9586' } },
+      { door: 'Iverson', finish: IV_TAG },
+      { door: 'Erving', finish: ER_TAG },
     ],
   },
   {
-    src: '/IMG_1077_(Custom).jpg',
-    alt: 'Hinge Custom Series installation — Iverson',
-    tags: [{ door: 'Iverson', finish: { kind: 'paint', name: 'White Sesame', label: 'ColorDrop · White Sesame SW 9586' } }],
-  },
-  {
-    src: '/IMG_1132_(Custom).jpg',
-    alt: 'Hinge Custom Series cabinetry detail — Iverson',
+    src: '/iverson-erving_hc-project_06.jpg',
+    alt: 'Hinge custom kitchen — Iverson cabinetry with Erving island',
     tags: [
-      { door: 'Iverson', finish: { kind: 'paint', name: 'White Sesame', label: 'ColorDrop · White Sesame SW 9586' } },
-      { door: 'Erving', finish: { kind: 'stain', name: 'Rye', label: 'Ztain · Rye' } },
+      { door: 'Iverson', finish: IV_TAG },
+      { door: 'Erving', finish: ER_TAG },
     ],
   },
   {
-    src: '/IMG_1151_(Custom).jpg',
-    alt: 'Hinge Custom Series cabinetry detail — Erving and Iverson',
-    tags: [
-      { door: 'Erving', finish: { kind: 'stain', name: 'Rye', label: 'Ztain · Rye' } },
-      { door: 'Iverson', finish: { kind: 'paint', name: 'White Sesame', label: 'ColorDrop · White Sesame SW 9586' } },
-    ],
+    src: '/iverson_hc-project_02.jpg',
+    alt: 'Hinge custom kitchen — Iverson sink run detail',
+    tags: [{ door: 'Iverson', finish: IV_TAG }],
+  },
+  {
+    src: '/iverson_hc-project_04.jpg',
+    alt: 'Hinge custom kitchen — Iverson perimeter cabinetry wide view',
+    tags: [{ door: 'Iverson', finish: IV_TAG }],
+  },
+  {
+    src: '/iverson_hc-project_05.jpg',
+    alt: 'Hinge custom kitchen — Iverson window wall cabinetry',
+    tags: [{ door: 'Iverson', finish: IV_TAG }],
+  },
+  {
+    src: '/iverson_hc-project_07.jpg',
+    alt: 'Hinge custom kitchen — Iverson cabinetry detail at windows',
+    tags: [{ door: 'Iverson', finish: IV_TAG }],
+  },
+  {
+    src: '/iverson_hc-project_08.jpg',
+    alt: 'Hinge custom kitchen — Iverson sink close-up',
+    tags: [{ door: 'Iverson', finish: IV_TAG }],
+  },
+  {
+    src: '/iverson_hc-project_09.jpg',
+    alt: 'Hinge custom kitchen — Iverson dishwasher and drawer bank',
+    tags: [{ door: 'Iverson', finish: IV_TAG }],
+  },
+  {
+    src: '/iverson_hc-project_010.jpg',
+    alt: 'Hinge custom kitchen — Iverson cabinet close-up detail',
+    tags: [{ door: 'Iverson', finish: IV_TAG }],
+  },
+  {
+    src: '/iverson_hc-project_011.jpg',
+    alt: 'Hinge custom kitchen — Iverson cabinet detail',
+    tags: [{ door: 'Iverson', finish: IV_TAG }],
   },
 ];
 
@@ -163,7 +188,7 @@ export default function ProjectCarousel() {
       </button>
 
       {/* Dots */}
-      <div className="absolute bottom-4 right-4 z-30 flex items-center gap-1.5">
+      <div className="absolute bottom-4 right-4 z-30 flex items-center gap-1.5 flex-wrap justify-end max-w-[60%]">
         {slides.map((_, i) => (
           <button
             key={i}
