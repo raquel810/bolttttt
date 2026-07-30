@@ -13,10 +13,15 @@ interface GalleryItem {
 
 const items: GalleryItem[] = [
   { src: '/iverson-erving_hc-project_00.jpg', alt: 'Iverson perimeter with Erving island', line: 'Custom', door: 'Iverson + Erving', finish: 'White Sesame / Rye' },
+  { src: '/iverson-erving_hc-project_01.jpg', alt: 'Iverson and Erving door styles', line: 'Custom', door: 'Iverson + Erving', finish: 'White Sesame / Rye' },
   { src: '/iverson-erving_hc-project_03.jpg', alt: 'Iverson perimeter with Erving island detail', line: 'Custom', door: 'Iverson + Erving', finish: 'White Sesame / Rye' },
   { src: '/iverson-erving_hc-project_06.jpg', alt: 'Iverson cabinetry with Erving island', line: 'Custom', door: 'Iverson + Erving', finish: 'White Sesame / Rye' },
+  { src: '/iverson_hc-project_02.jpg', alt: 'Iverson sink run detail', line: 'Custom', door: 'Iverson', finish: 'White Sesame' },
   { src: '/iverson_hc-project_04.jpg', alt: 'Iverson perimeter cabinetry wide view', line: 'Custom', door: 'Iverson', finish: 'White Sesame' },
   { src: '/iverson_hc-project_05.jpg', alt: 'Iverson window wall cabinetry', line: 'Custom', door: 'Iverson', finish: 'White Sesame' },
+  { src: '/iverson_hc-project_07.jpg', alt: 'Iverson cabinetry detail at windows', line: 'Custom', door: 'Iverson', finish: 'White Sesame' },
+  { src: '/iverson_hc-project_08.jpg', alt: 'Iverson sink close-up', line: 'Custom', door: 'Iverson', finish: 'White Sesame' },
+  { src: '/iverson_hc-project_09.jpg', alt: 'Iverson dishwasher and drawer bank', line: 'Custom', door: 'Iverson', finish: 'White Sesame' },
   { src: '/iverson_hc-project_010.jpg', alt: 'Iverson cabinet close-up detail', line: 'Custom', door: 'Iverson', finish: 'White Sesame' },
   { src: '/iverson_hc-project_011.jpg', alt: 'Iverson cabinet detail', line: 'Custom', door: 'Iverson', finish: 'White Sesame' },
   { src: '/erving_hc-project2.jpg', alt: 'Erving custom kitchen installation', line: 'Custom', door: 'Erving', finish: 'Rye' },
