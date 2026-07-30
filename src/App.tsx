@@ -304,10 +304,7 @@ function App() {
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-brand-ink/50"></div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <img src="/hinge-pro-logo-white.png" alt="Hinge Pro" className="h-16 md:h-24 w-auto object-contain drop-shadow-2xl" loading="lazy" />
-        </div>
+        <div className="absolute inset-0 bg-brand-ink/40"></div>
       </section>
 
       {/* Pro Series Section */}
