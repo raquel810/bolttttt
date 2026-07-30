@@ -22,12 +22,12 @@ const proDoors: ProDoor[] = [
     frame: '2 1/2"',
     description: 'A flat-panel mitered door providing a balanced proportion between frame and panel. Clean mitered corners deliver a seamless, contemporary look.',
     finishes: [
-      { name: 'Chalk', image: '/images/door-styles/sanders/sanders-chalk_05.png' },
-      { name: 'Ivory', image: '/images/door-styles/sanders/sanders-ivory_04.png' },
-      { name: 'Fog', image: '/images/door-styles/sanders/sanders-fog_02.png' },
-      { name: 'Torrent', image: '/images/door-styles/sanders/sanders-torrent_00.png' },
-      { name: 'Pitch', image: '/images/door-styles/sanders/sanders-pitch_01.png' },
-      { name: 'Tannin', image: '/images/door-styles/sanders/sanders-tannin_03.png' },
+      { name: 'Chalk', image: '/images/door-styles/sanders/chalk-hingepro.jpg' },
+      { name: 'Ivory', image: '/images/door-styles/sanders/ivory-hingepro.jpg' },
+      { name: 'Fog', image: '/images/door-styles/sanders/fog-hingepro.jpg' },
+      { name: 'Torrent', image: '/images/door-styles/sanders/torrent_hingepro.jpg' },
+      { name: 'Pitch', image: '/images/door-styles/sanders/pitch-hingepro.jpg' },
+      { name: 'Tannin', image: '/images/door-styles/sanders/tannin-hingepro.jpg' },
     ],
   },
   {
@@ -37,8 +37,8 @@ const proDoors: ProDoor[] = [
     frame: '2 1/2"',
     description: 'A mitered flat-panel door with a shaped inside edge detail. Combines the seamless mitered corner with a transitional profile that bridges modern and traditional.',
     finishes: [
-      { name: 'Dove', image: '/images/door-styles/jordan/jordan-dove_00.png' },
-      { name: 'Pitch', image: '/images/door-styles/jordan/jordan-pitch_01.png' },
+      { name: 'Dove', image: '/images/door-styles/jordan/dove-jordan-hingepro.jpg' },
+      { name: 'Pitch', image: '/images/door-styles/jordan/pitch-jordan-hingepro.jpg' },
     ],
   },
   {
@@ -48,7 +48,7 @@ const proDoors: ProDoor[] = [
     frame: '2 1/2"',
     description: 'A mitered flat-panel door with an applied moulding detail on the center panel. Combines flat-panel simplicity with a decorative furniture-inspired accent.',
     finishes: [
-      { name: 'Briar', image: '/images/door-styles/russell/russell-briar_00.png' },
+      { name: 'Briar', image: '/images/door-styles/russell/briar-russell-hingepro.jpg' },
     ],
   },
 ];
