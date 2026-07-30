@@ -4,6 +4,7 @@ import CompareTable from './components/CompareTable';
 import ColorPalette from './components/ColorPalette';
 import DoorStyles from './components/DoorStyles';
 import PremiumPrograms from './components/PremiumPrograms';
+import InteractiveGallery from './components/InteractiveGallery';
 import ContactForm from './components/ContactForm';
 import ProDoorSelector from './components/ProDoorSelector';
 import ProjectCarousel from './components/ProjectCarousel';
@@ -309,24 +310,6 @@ function App() {
         </div>
       </section>
 
-      {/* Pro Series Project Examples */}
-      <section className="bg-surface-platinum pt-12 md:pt-16">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
-          <p className="text-center text-pro-rust text-xs tracking-[0.3em] uppercase mb-6">Installed Pro Projects</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-            <div className="rounded-xl overflow-hidden aspect-[4/3] group">
-              <img src="/briar_hingepro-projectexample.jpg" alt="Hinge Pro kitchen with dark island" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-            </div>
-            <div className="rounded-xl overflow-hidden aspect-[4/3] group">
-              <img src="/tannin_hingepro-projectexample.jpg" alt="Hinge Pro natural wood cabinetry" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-            </div>
-            <div className="rounded-xl overflow-hidden aspect-[4/3] group">
-              <img src="/pitch-jordan_hingepro-projectexample.jpg" alt="Hinge Pro dark wet bar with brass hardware" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Pro Series Section */}
       <section id="pro" ref={pro.ref} className="py-24 md:py-32 bg-surface-platinum">
         <div className={`max-w-7xl mx-auto px-6 md:px-12 lg:px-20 transition-all duration-700 ${pro.inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -437,20 +420,7 @@ function App() {
             <p className="text-neutral-500 max-w-lg mx-auto">A look at Hinge cabinetry installed in homes across the country—where precision engineering meets everyday living.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-            <div className="rounded-xl overflow-hidden aspect-[4/3] group">
-              <img src="/erving_hc-project3-2.jpg" alt="Hinge kitchen installation" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-            </div>
-            <div className="rounded-xl overflow-hidden aspect-[4/3] group">
-              <img src="/erving_hc-project2.jpg" alt="Hinge custom kitchen" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-            </div>
-            <div className="rounded-xl overflow-hidden aspect-[4/3] group">
-              <img src="/tannin_hingepro-projectexample.jpg" alt="Hinge frameless cabinetry" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-            </div>
-            <div className="rounded-xl overflow-hidden aspect-[4/3] group">
-              <img src="/pitch-jordan_hingepro-projectexample.jpg" alt="Hinge cabinetry craftsmanship" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-            </div>
-          </div>
+          <InteractiveGallery />
         </div>
       </section>
 
