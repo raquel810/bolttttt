@@ -296,7 +296,14 @@ function App() {
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-brand-ink/40"></div>
+        <div className="absolute inset-0 bg-white/60"></div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <img
+            src="/image.png"
+            alt="Hinge Pro"
+            className="h-16 md:h-24 w-auto object-contain drop-shadow-sm"
+          />
+        </div>
       </section>
 
       {/* Pro Series Section */}
@@ -304,11 +311,6 @@ function App() {
         <div className={`max-w-7xl mx-auto px-6 md:px-12 lg:px-20 transition-all duration-700 ${pro.inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div className="order-2 lg:order-1 space-y-6">
-              {/* Pro Product Image */}
-              <div className="rounded-xl overflow-hidden bg-white border border-neutral-200 p-6 flex items-center justify-center">
-                <img src="/hinge-pro1.png" alt="Hinge Pro Series cabinet" className="w-full h-auto object-contain hover:scale-105 transition-transform duration-500" loading="lazy" />
-              </div>
-
               <div className="bg-white rounded-xl p-8 border border-neutral-200">
                 <h4 className="font-semibold text-pro-flame mb-4 text-sm tracking-wide uppercase">Value Proposition</h4>
                 <div className="space-y-4">
