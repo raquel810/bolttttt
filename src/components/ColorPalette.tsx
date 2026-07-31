@@ -260,6 +260,9 @@ export default function ColorPalette() {
           <p className="text-center text-neutral-400 text-sm mt-10 max-w-lg mx-auto">
             Classic paint finishes deliver an ultra-flat, glass-smooth surface formulated to complement our entire collection of door styles and architectural materials.
           </p>
+          <p className="text-center text-neutral-400/70 text-xs mt-3 max-w-md mx-auto italic">
+            Colors shown are digital representations and may vary from the actual product due to differences in monitors and display settings.
+          </p>
         </>
       )}
 
@@ -317,6 +320,9 @@ export default function ColorPalette() {
 
           <p className="text-center text-neutral-400 text-sm mt-10 max-w-lg mx-auto">
             A versatile range of stain finishes that emphasize grain, tone, and natural variation. Custom color matching available through the ColorDrop program.
+          </p>
+          <p className="text-center text-neutral-400/70 text-xs mt-3 max-w-md mx-auto italic">
+            Stains absorb differently depending on species, cut, and individual board character. Variation is normal — even within a single project.
           </p>
         </>
       )}

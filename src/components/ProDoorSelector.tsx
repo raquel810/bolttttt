@@ -139,6 +139,9 @@ export default function ProDoorSelector() {
             </span>
           </div>
         </div>
+        <p className="text-neutral-400/70 text-[11px] mt-3 italic">
+          Colors shown are representations and may vary from the finished product.
+        </p>
       </div>
     </div>
   );

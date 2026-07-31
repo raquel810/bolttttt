@@ -230,6 +230,10 @@ export default function DoorStyles() {
           </div>
         </div>
       </div>
+
+      <p className="text-center text-neutral-400/70 text-xs mt-6 italic">
+        Photos are representative. Actual grain character, color, and finish may vary from what is shown.
+      </p>
     </div>
   );
 }

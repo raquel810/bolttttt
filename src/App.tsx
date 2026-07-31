@@ -543,6 +543,9 @@ function App() {
               <span>12515 Rhea Drive, Plainfield, IL 60585</span>
             </div>
           </div>
+          <p className="text-neutral-600/60 text-[10px] text-center mt-6 max-w-3xl mx-auto leading-relaxed">
+            The contents of this site, including product offerings and specifications, are subject to change without notice. Colors shown are digital representations and may vary from the actual product due to variations in monitors and display settings. Consult your Hinge representative for current product details.
+          </p>
         </div>
       </footer>
     </div>

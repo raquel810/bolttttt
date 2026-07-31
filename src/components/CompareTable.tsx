@@ -16,6 +16,7 @@ export default function CompareTable() {
   const [hoveredRow, setHoveredRow] = useState<number | null>(null);
 
   return (
+    <>
     <div className="overflow-hidden rounded-xl border border-neutral-200">
       {/* Header */}
       <div className="grid grid-cols-[1fr_1fr_1fr] md:grid-cols-[1.2fr_1fr_1fr]">
@@ -52,5 +53,9 @@ export default function CompareTable() {
         </div>
       ))}
     </div>
+    <p className="text-neutral-400/70 text-xs mt-4 text-center italic">
+      Product offerings and specifications are subject to change without notice. Contact your representative for current details.
+    </p>
+    </>
   );
 }
