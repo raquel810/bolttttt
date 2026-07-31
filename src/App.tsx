@@ -299,7 +299,7 @@ function App() {
         <div className="absolute inset-0 bg-white/60"></div>
         <div className="absolute inset-0 flex items-center justify-center">
           <img
-            src="/image.png"
+            src="/hinge-pro1.png"
             alt="Hinge Pro"
             className="h-16 md:h-24 w-auto object-contain drop-shadow-sm"
           />
