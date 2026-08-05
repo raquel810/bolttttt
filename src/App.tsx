@@ -291,8 +291,8 @@ function App() {
       {/* Pro Series Hero */}
       <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
         <img
-          src="/briar_hingepro-projectexample.jpg"
-          alt="Hinge Pro kitchen installation"
+          src="/tannin_hingepro-projectexample.jpg"
+          alt="Hinge Pro Duncan kitchen installation"
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"
         />
@@ -316,10 +316,11 @@ function App() {
                 <div className="space-y-4">
                   {[
                     { label: 'Construction', value: 'Rugged all-wood box construction' },
-                    { label: 'Door Style', value: 'Full-overlay for a clean, modern look' },
-                    { label: 'Hardware', value: 'Integrated Premium Blum® Soft-Close' },
-                    { label: 'Lead Time', value: 'Accelerated turnaround for trade professionals' },
-                    { label: 'Value', value: 'Luxury performance, value-engineered for smart equity' },
+                    { label: 'Door Style', value: 'Duncan — mitered flat panel, full overlay' },
+                    { label: 'Finishes', value: 'Any Hinge paint or stain' },
+                    { label: 'Hardware', value: 'Premium Blum® Soft-Close standard' },
+                    { label: 'Lead Time', value: '3–4 weeks' },
+                    { label: 'Value', value: 'Affordable luxury for every project' },
                   ].map(({ label, value }) => (
                     <div key={label} className="flex justify-between items-start gap-4 pb-3 border-b border-neutral-100 last:border-0 last:pb-0">
                       <span className="text-neutral-500 text-sm font-medium">{label}</span>
@@ -360,17 +361,17 @@ function App() {
             <div className="order-1 lg:order-2">
               <p className="text-pro-rust text-xs tracking-[0.3em] uppercase mb-3">Hinge Pro Series</p>
               <h2 className="text-3xl md:text-5xl font-bold text-brand-charcoal leading-tight mb-6">
-                High-Efficiency,<br />Streamlined Selection
+                One Versatile Door.<br />Any Finish. Affordable Luxury.
               </h2>
               <p className="text-neutral-600 text-lg leading-relaxed mb-8">
-                Engineered for builders, contractors, and design-conscious homeowners who need accelerated lead times and exceptional value without sacrificing luxury performance. The Hinge Pro Series pairs rugged all-wood box construction with full-overlay styles—delivering smart equity on every project.
+                The Hinge Pro Series delivers a single, beautifully crafted Duncan door in any paint or stain from the full Hinge palette—paired with rugged all-wood box construction and premium Blum hardware. Versatile enough for any style, delivered in 3–4 weeks at a price that makes luxury accessible.
               </p>
 
               <div className="space-y-6">
                 {[
-                  { icon: Layers, title: 'Rugged All-Wood Construction', desc: 'All-wood box construction paired with full-overlay door styles delivers structural integrity and a clean, modern aesthetic built to perform.' },
-                  { icon: Sparkles, title: 'Premium Blum® Soft-Close', desc: 'Integrated world-class European hardware—the exact same Blum® moving parts found in ultra-luxury custom kitchens—standard on every Pro unit.' },
-                  { icon: Shield, title: 'Accelerated Lead Times', desc: 'Production-efficient engineering means your project moves faster—reliable scheduling built for trade professionals who value time as much as quality.' },
+                  { icon: Layers, title: 'Rugged All-Wood Construction', desc: 'Solid wood box construction paired with the mitered Duncan door delivers structural integrity and a clean, modern aesthetic built to perform.' },
+                  { icon: Sparkles, title: 'Premium Blum® Soft-Close', desc: 'World-class European hardware—the same Blum® moving parts found in ultra-luxury custom kitchens—standard on every Pro unit.' },
+                  { icon: Shield, title: '3–4 Week Lead Times', desc: 'Get your project done faster. Streamlined production means reliable scheduling for trade professionals and homeowners alike.' },
                 ].map(({ icon: Icon, title, desc }) => (
                   <div key={title} className="flex gap-4">
                     <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-pro-flame/10 flex items-center justify-center">
@@ -391,7 +392,7 @@ function App() {
       {/* Photography Divider */}
       <section className="relative h-[40vh] md:h-[50vh] overflow-hidden">
         <img
-          src="/erving_hc-project3.jpg"
+          src="/erving_hc-project3_00.jpg"
           alt="Hinge cabinetry craftsmanship"
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"

@@ -2,14 +2,14 @@ import { useState } from 'react';
 
 const specs = [
   { category: 'Construction', custom: 'Frameless (European)', pro: 'Framed, Full-Overlay' },
-  { category: 'Customization', custom: 'Full Custom Sizing', pro: 'Streamlined Standard Sizes' },
+  { category: 'Customization', custom: 'Full Custom Sizing', pro: 'Standard Sizes' },
   { category: 'Box Material', custom: '3/4" Plywood', pro: 'All-Wood Rugged Box' },
   { category: 'Drawer Construction', custom: 'Hand-Sanded Dovetail', pro: 'Standard Dovetail' },
   { category: 'Hardware', custom: 'Blum Soft-Close (Full Suite)', pro: 'Premium Blum® Soft-Close' },
   { category: 'Finished Ends', custom: 'Flush Decorative Ends', pro: 'Standard Finished Ends' },
   { category: 'Tolerances', custom: '1/16" Micro-Tolerance', pro: 'Standard Tolerances' },
-  { category: 'Lead Time', custom: '6-8 Weeks', pro: '2-3 Weeks' },
-  { category: 'Finish Options', custom: '10 Paints + 10 Stains + ColorDrop', pro: '3 Door Styles in Select Finishes' },
+  { category: 'Lead Time', custom: '6-8 Weeks', pro: '3-4 Weeks' },
+  { category: 'Finish Options', custom: '10 Paints + 10 Stains + ColorDrop', pro: 'Duncan in Any Paint or Stain' },
 ];
 
 export default function CompareTable() {

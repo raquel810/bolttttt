@@ -24,14 +24,14 @@ const items: GalleryItem[] = [
   { src: '/iverson_hc-project_09.jpg', alt: 'Iverson dishwasher and drawer bank', line: 'Custom', door: 'Iverson', finish: 'White Sesame' },
   { src: '/iverson_hc-project_010.jpg', alt: 'Iverson cabinet close-up detail', line: 'Custom', door: 'Iverson', finish: 'White Sesame' },
   { src: '/iverson_hc-project_011.jpg', alt: 'Iverson cabinet detail', line: 'Custom', door: 'Iverson', finish: 'White Sesame' },
-  { src: '/erving_hc-project2.jpg', alt: 'Erving custom kitchen installation', line: 'Custom', door: 'Erving', finish: 'Rye' },
-  { src: '/erving_hc-project3.jpg', alt: 'Erving cabinetry craftsmanship', line: 'Custom', door: 'Erving', finish: 'Rye' },
-  { src: '/erving_hc-project3-2.jpg', alt: 'Erving kitchen installation detail', line: 'Custom', door: 'Erving', finish: 'Rye' },
-  { src: '/erving_hc-project4.jpg', alt: 'Erving custom kitchen wide view', line: 'Custom', door: 'Erving', finish: 'Rye' },
-  { src: '/erving_hc-project4-2.jpg', alt: 'Erving dark kitchen', line: 'Custom', door: 'Erving', finish: 'Rye' },
-  { src: '/briar_hingepro-projectexample.jpg', alt: 'Pro kitchen with dark island', line: 'Pro', door: 'Russell', finish: 'Briar' },
-  { src: '/tannin_hingepro-projectexample.jpg', alt: 'Pro natural wood cabinetry', line: 'Pro', door: 'Sanders', finish: 'Tannin' },
-  { src: '/pitch-jordan_hingepro-projectexample.jpg', alt: 'Pro dark wet bar with brass hardware', line: 'Pro', door: 'Jordan', finish: 'Pitch' },
+  { src: '/erving_hc-project2.jpg', alt: 'Erving kitchen with Alcove perimeter and Oat island', line: 'Custom', door: 'Erving', finish: 'Alcove / Oat' },
+  { src: '/erving_hc-project3_00.jpg', alt: 'Erving in alder custom stain', line: 'Custom', door: 'Erving', finish: 'Alder Custom Stain' },
+  { src: '/erving_hc-project3_01.jpg', alt: 'Erving in alder custom stain detail', line: 'Custom', door: 'Erving', finish: 'Alder Custom Stain' },
+  { src: '/erving_hc-project3_02.jpg', alt: 'Erving alder custom stain cabinetry', line: 'Custom', door: 'Erving', finish: 'Alder Custom Stain' },
+  { src: '/erving_hc-project3_03.jpg', alt: 'Erving alder custom stain wide view', line: 'Custom', door: 'Erving', finish: 'Alder Custom Stain' },
+  { src: '/erving_hc-project4.jpg', alt: 'Erving custom finish kitchen', line: 'Custom', door: 'Erving', finish: 'Custom Finish' },
+  { src: '/erving_hc-project4-2.jpg', alt: 'Erving custom finish detail', line: 'Custom', door: 'Erving', finish: 'Custom Finish' },
+  { src: '/tannin_hingepro-projectexample.jpg', alt: 'Pro natural wood cabinetry', line: 'Pro', door: 'Duncan', finish: 'Tannin' },
 ];
 
 const filters: { label: string; value: Line | 'All' }[] = [

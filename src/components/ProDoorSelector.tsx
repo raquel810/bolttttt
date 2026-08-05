@@ -1,146 +1,172 @@
 import { useState } from 'react';
 
-interface Finish {
+interface PaintSwatch {
+  name: string;
+  hex: string;
+  textLight?: boolean;
+}
+
+interface StainSwatch {
   name: string;
   image: string;
 }
 
-interface ProDoor {
-  name: string;
-  profile: string;
-  construction: string;
-  frame: string;
-  description: string;
-  finishes: Finish[];
-}
+const paints: PaintSwatch[] = [
+  { name: 'Polar', hex: '#F8F7F1' },
+  { name: 'Arctic', hex: '#F1EDEC' },
+  { name: 'Moonlight', hex: '#DFD3C3' },
+  { name: 'Stone', hex: '#CCC8BF' },
+  { name: 'Slate', hex: '#7F817E', textLight: true },
+  { name: 'Sage', hex: '#95978A' },
+  { name: 'Basil', hex: '#626F61', textLight: true },
+  { name: 'Harbor', hex: '#758B9A', textLight: true },
+  { name: 'Navy', hex: '#35454E', textLight: true },
+  { name: 'Onyx', hex: '#2F2F30', textLight: true },
+];
 
-const proDoors: ProDoor[] = [
-  {
-    name: 'Duncan',
-    profile: '/duncan_profile.png',
-    construction: 'Mitered',
-    frame: '2 1/2"',
-    description: 'A flat-panel mitered door providing a balanced proportion between frame and panel. Clean mitered corners deliver a seamless, contemporary look.',
-    finishes: [
-      { name: 'Chalk', image: '/images/door-styles/sanders/chalk-hingepro.jpg' },
-      { name: 'Ivory', image: '/images/door-styles/sanders/ivory-hingepro.jpg' },
-      { name: 'Fog', image: '/images/door-styles/sanders/fog-hingepro.jpg' },
-      { name: 'Torrent', image: '/images/door-styles/sanders/torrent_hingepro.jpg' },
-      { name: 'Pitch', image: '/images/door-styles/sanders/pitch-hingepro.jpg' },
-      { name: 'Tannin', image: '/images/door-styles/sanders/tannin-hingepro.jpg' },
-    ],
-  },
-  {
-    name: 'Jordan',
-    profile: '/jordan_profile.png',
-    construction: 'Mitered',
-    frame: '2 1/2"',
-    description: 'A mitered flat-panel door with a shaped inside edge detail. Combines the seamless mitered corner with a transitional profile that bridges modern and traditional.',
-    finishes: [
-      { name: 'Dove', image: '/images/door-styles/jordan/dove-jordan-hingepro.jpg' },
-      { name: 'Pitch', image: '/images/door-styles/jordan/pitch-jordan-hingepro.jpg' },
-    ],
-  },
-  {
-    name: 'Russell',
-    profile: '/russell_profile.png',
-    construction: 'Mitered',
-    frame: '2 1/2"',
-    description: 'A mitered flat-panel door with an applied moulding detail on the center panel. Combines flat-panel simplicity with a decorative furniture-inspired accent.',
-    finishes: [
-      { name: 'Briar', image: '/images/door-styles/russell/briar-russell-hingepro.jpg' },
-    ],
-  },
+const stains: StainSwatch[] = [
+  { name: 'Oat', image: '/oat_hc-stain.jpg' },
+  { name: 'Honey', image: '/honey_hc-stain.jpg' },
+  { name: 'Fawn', image: '/fawn_hc-stain.jpg' },
+  { name: 'Rye', image: '/rye_hc-stain.jpg' },
+  { name: 'Reed', image: '/reed_hc-stain.jpg' },
+  { name: 'Cask', image: '/cask_hc-stain.jpg' },
+  { name: 'Alcove', image: '/alcove_hc-stain.jpg' },
+  { name: 'Pumice', image: '/pumice_hc-stain.jpg' },
+  { name: 'Shale', image: '/shale_hc-stain.jpg' },
+  { name: 'Graphite', image: '/graphite_hc-stain.jpg' },
+  { name: 'Port', image: '/port_hc-stain.jpg' },
 ];
 
 export default function ProDoorSelector() {
-  const [selectedDoor, setSelectedDoor] = useState<ProDoor>(proDoors[0]);
-  const [selectedFinish, setSelectedFinish] = useState<Finish>(proDoors[0].finishes[0]);
-
-  const handleDoorSelect = (door: ProDoor) => {
-    setSelectedDoor(door);
-    setSelectedFinish(door.finishes[0]);
-  };
+  const [activeTab, setActiveTab] = useState<'paint' | 'stain'>('paint');
+  const [selectedPaint, setSelectedPaint] = useState<PaintSwatch | null>(null);
+  const [selectedStain, setSelectedStain] = useState<StainSwatch | null>(null);
 
   return (
     <div className="bg-white rounded-xl p-8 border border-neutral-200">
-      <h4 className="font-semibold text-pro-flame mb-2 text-sm tracking-wide uppercase">Door Selection</h4>
+      {/* Duncan Door Showcase */}
+      <h4 className="font-semibold text-pro-flame mb-2 text-sm tracking-wide uppercase">
+        The Duncan Door
+      </h4>
       <p className="text-neutral-500 text-sm mb-6 leading-relaxed">
-        Curated full-overlay door styles engineered for the Pro Series — designed to deliver a clean, modern look with accelerated production timelines.
+        A flat-panel mitered door with a 2 1/2" frame — delivering a clean, contemporary aesthetic with balanced proportions. One versatile door, available in every finish we make.
       </p>
 
-      {/* Door style tabs */}
-      <div className="flex gap-1 mb-6 bg-neutral-50 rounded-lg p-1">
-        {proDoors.map((door) => (
-          <button
-            key={door.name}
-            onClick={() => handleDoorSelect(door)}
-            className={`flex-1 px-4 py-2.5 rounded-md text-sm font-medium transition-all duration-200 ${
-              selectedDoor.name === door.name
-                ? 'bg-white text-brand-charcoal shadow-sm'
-                : 'text-neutral-500 hover:text-neutral-700'
-            }`}
-          >
-            {door.name}
-          </button>
-        ))}
-      </div>
-
-      {/* Selected door display */}
-      <div className="flex gap-6 mb-6">
+      <div className="flex gap-6 mb-8">
         <div className="w-24 h-32 flex-shrink-0 bg-surface-platinum rounded-lg border border-neutral-100 overflow-hidden">
           <img
-            src={selectedDoor.profile}
-            alt={`${selectedDoor.name} profile`}
+            src="/duncan_profile.png"
+            alt="Duncan door profile"
             className="w-full h-full object-cover"
           />
         </div>
         <div className="flex-1 min-w-0">
-          <h5 className="text-lg font-semibold text-brand-charcoal mb-1">{selectedDoor.name}</h5>
-          <p className="text-xs text-neutral-400 mb-2">
-            {selectedDoor.construction} &middot; Full Overlay
+          <h5 className="text-lg font-semibold text-brand-charcoal mb-1">Duncan</h5>
+          <p className="text-xs text-neutral-400 mb-2">Mitered · Full Overlay · 2 1/2" Frame</p>
+          <p className="text-sm text-neutral-600 leading-relaxed">
+            Clean mitered corners deliver a seamless, modern look that pairs beautifully with any paint or stain from the Hinge palette.
           </p>
-          <p className="text-sm text-neutral-600 leading-relaxed">{selectedDoor.description}</p>
         </div>
       </div>
 
-      {/* Finish selector */}
-      <div className="border-t border-neutral-100 pt-5">
-        <p className="text-xs font-medium text-neutral-500 uppercase tracking-wide mb-3">
-          Available Finishes ({selectedDoor.finishes.length})
-        </p>
-        <div className="flex gap-2 flex-wrap mb-5">
-          {selectedDoor.finishes.map((finish) => (
+      {/* Full Finish Palette */}
+      <div className="border-t border-neutral-100 pt-6">
+        <div className="flex items-center justify-between mb-4">
+          <p className="text-xs font-medium text-neutral-500 uppercase tracking-wide">
+            Available Finishes ({paints.length + stains.length})
+          </p>
+          <div className="inline-flex bg-neutral-50 rounded-md p-0.5 border border-neutral-100">
             <button
-              key={finish.name}
-              onClick={() => setSelectedFinish(finish)}
-              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
-                selectedFinish.name === finish.name
-                  ? 'bg-brand-charcoal text-white'
-                  : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200'
+              onClick={() => { setActiveTab('paint'); setSelectedStain(null); }}
+              className={`px-3 py-1.5 rounded text-xs font-medium transition-all ${
+                activeTab === 'paint'
+                  ? 'bg-white text-brand-charcoal shadow-sm'
+                  : 'text-neutral-500 hover:text-neutral-700'
               }`}
             >
-              {finish.name}
+              Paints ({paints.length})
             </button>
-          ))}
-        </div>
-
-        {/* Finish preview */}
-        <div className="aspect-[4/3] bg-surface-platinum rounded-lg border border-neutral-100 overflow-hidden relative">
-          <img
-            key={selectedFinish.image}
-            src={selectedFinish.image}
-            alt={`${selectedDoor.name} in ${selectedFinish.name} finish`}
-            className="w-full h-full object-cover animate-fade-in"
-          />
-          <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm rounded-md px-3 py-1.5 shadow-sm">
-            <span className="text-xs font-medium text-brand-charcoal">
-              {selectedDoor.name} — {selectedFinish.name}
-            </span>
+            <button
+              onClick={() => { setActiveTab('stain'); setSelectedPaint(null); }}
+              className={`px-3 py-1.5 rounded text-xs font-medium transition-all ${
+                activeTab === 'stain'
+                  ? 'bg-white text-brand-charcoal shadow-sm'
+                  : 'text-neutral-500 hover:text-neutral-700'
+              }`}
+            >
+              Stains ({stains.length})
+            </button>
           </div>
         </div>
+
+        {activeTab === 'paint' && (
+          <div className="grid grid-cols-5 gap-2 mb-4">
+            {paints.map((p) => (
+              <button
+                key={p.name}
+                onClick={() => setSelectedPaint(p)}
+                className={`group relative aspect-square rounded-lg border-2 transition-all duration-200 ${
+                  selectedPaint?.name === p.name
+                    ? 'border-pro-flame scale-105 shadow-md'
+                    : 'border-neutral-200 hover:border-neutral-400 hover:shadow-sm'
+                }`}
+                style={{ backgroundColor: p.hex }}
+                title={p.name}
+              >
+                <span className={`absolute bottom-0.5 left-0 right-0 text-center text-[9px] font-medium leading-tight ${
+                  p.textLight ? 'text-white/80' : 'text-neutral-700/80'
+                }`}>
+                  {p.name}
+                </span>
+              </button>
+            ))}
+          </div>
+        )}
+
+        {activeTab === 'stain' && (
+          <div className="grid grid-cols-4 sm:grid-cols-5 lg:grid-cols-6 gap-2 mb-4">
+            {stains.map((s) => (
+              <button
+                key={s.name}
+                onClick={() => setSelectedStain(s)}
+                className={`group relative aspect-square rounded-lg border-2 overflow-hidden transition-all duration-200 ${
+                  selectedStain?.name === s.name
+                    ? 'border-pro-flame scale-105 shadow-md'
+                    : 'border-neutral-200 hover:border-neutral-400 hover:shadow-sm'
+                }`}
+                title={s.name}
+              >
+                <img src={s.image} alt={s.name} className="w-full h-full object-cover" />
+                <span className="absolute bottom-0 inset-x-0 bg-black/50 text-white text-[9px] font-medium text-center py-0.5">
+                  {s.name}
+                </span>
+              </button>
+            ))}
+          </div>
+        )}
+
+        {(selectedPaint || selectedStain) && (
+          <div className="bg-surface-platinum rounded-lg px-4 py-3 flex items-center gap-3 animate-fade-in">
+            {selectedPaint && (
+              <>
+                <div className="w-8 h-8 rounded-md border border-neutral-200 flex-shrink-0" style={{ backgroundColor: selectedPaint.hex }} />
+                <span className="text-sm font-medium text-brand-charcoal">Duncan — {selectedPaint.name}</span>
+              </>
+            )}
+            {selectedStain && (
+              <>
+                <div className="w-8 h-8 rounded-md border border-neutral-200 flex-shrink-0 overflow-hidden">
+                  <img src={selectedStain.image} alt={selectedStain.name} className="w-full h-full object-cover" />
+                </div>
+                <span className="text-sm font-medium text-brand-charcoal">Duncan — {selectedStain.name}</span>
+              </>
+            )}
+          </div>
+        )}
+
         <p className="text-neutral-400/70 text-[11px] mt-3 italic">
-          Colors shown are representations and may vary from the finished product.
+          Colors shown are representations and may vary from the finished product. ColorDrop custom matching also available.
         </p>
       </div>
     </div>
