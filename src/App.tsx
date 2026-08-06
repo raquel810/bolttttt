@@ -307,7 +307,7 @@ function App() {
       </section>
 
       {/* Pro Series Section */}
-      <section id="pro" ref={pro.ref} className="py-24 md:py-32 bg-surface-platinum">
+      <section id="pro" ref={pro.ref} className="py-6 md:py-8 bg-surface-platinum">
         <div className={`max-w-7xl mx-auto px-6 md:px-12 lg:px-20 transition-all duration-700 ${pro.inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div className="order-2 lg:order-1 space-y-6">

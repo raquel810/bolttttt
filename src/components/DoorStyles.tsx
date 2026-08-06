@@ -165,7 +165,7 @@ export default function DoorStyles() {
               <img
                 src={door.full}
                 alt={`${door.name} door`}
-                className={`h-full w-full object-cover transition-all duration-200 ${
+                className={`max-h-full max-w-full object-contain transition-all duration-200 ${
                   selected.name === door.name ? 'scale-105' : 'opacity-70 group-hover:opacity-100'
                 }`}
               />

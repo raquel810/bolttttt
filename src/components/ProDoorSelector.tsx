@@ -54,11 +54,11 @@ export default function ProDoorSelector() {
       </p>
 
       <div className="flex gap-6 mb-8">
-        <div className="w-32 h-40 flex-shrink-0 bg-surface-platinum rounded-lg border border-neutral-100 overflow-hidden shadow-sm">
+        <div className="w-32 flex-shrink-0 bg-surface-platinum rounded-lg border border-neutral-100 overflow-hidden shadow-sm">
           <img
             src="/hingepro_duncanunfinished.jpg"
             alt="Duncan door unfinished"
-            className="w-full h-full object-cover"
+            className="w-full h-auto object-contain"
           />
         </div>
         <div className="flex-1 min-w-0 flex flex-col justify-center">
