@@ -82,13 +82,6 @@ const paintFinishes: PaintFinish[] = [
     tags: ['Avant-Garde', 'High-Contrast', 'Stealth Luxury'],
     description: 'A deep, dramatic charcoal-black. Delivers maximum architectural impact and razor-sharp shadow lines across flush cabinet configurations.',
   },
-  {
-    name: 'White Sesame',
-    hex: '#EDE7DA',
-    tags: ['ColorDrop Custom', 'Sherwin-Williams', 'Warm Neutral'],
-    description: 'A custom ColorDrop match of Sherwin-Williams White Sesame (SW 9586) — a soft, sun-warmed alabaster with a whisper of warm beige. Brings a quietly tailored, luminous warmth to painted perimeter cabinetry.',
-    custom: true,
-  },
 ];
 
 const stainFinishes: StainFinish[] = [
