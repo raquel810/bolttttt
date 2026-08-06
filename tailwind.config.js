@@ -9,7 +9,7 @@ export default {
           jet: '#232E38',
           ink: '#10202E',
         },
-        pro: {
+        select: {
           rust: '#A63A13',
           flame: '#F15A24',
           seashell: '#FFF1EB',

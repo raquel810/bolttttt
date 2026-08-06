@@ -38,7 +38,7 @@ const stains: StainSwatch[] = [
   { name: 'Port', image: '/port_hc-stain.jpg' },
 ];
 
-export default function ProDoorSelector() {
+export default function SelectDoorSelector() {
   const [activeTab, setActiveTab] = useState<'paint' | 'stain'>('paint');
   const [selectedPaint, setSelectedPaint] = useState<PaintSwatch | null>(null);
   const [selectedStain, setSelectedStain] = useState<StainSwatch | null>(null);
@@ -46,11 +46,11 @@ export default function ProDoorSelector() {
   return (
     <div className="bg-white rounded-xl p-8 border border-neutral-200">
       {/* Duncan Door Showcase */}
-      <h4 className="font-semibold text-pro-flame mb-2 text-sm tracking-wide uppercase">
+      <h4 className="font-semibold text-select-flame mb-2 text-sm tracking-wide uppercase">
         The Duncan Door
       </h4>
       <p className="text-neutral-500 text-sm mb-6 leading-relaxed">
-        A flat-panel mitered door with a 2 1/2" frame — delivering a clean, contemporary aesthetic with balanced proportions. One versatile door, available in every finish we make.
+        A chamfer shaker door with a 2 1/2" frame — delivering a clean, contemporary aesthetic with balanced proportions. One versatile door, available in every finish we make.
       </p>
 
       <div className="flex gap-6 mb-8">
@@ -63,9 +63,9 @@ export default function ProDoorSelector() {
         </div>
         <div className="flex-1 min-w-0 flex flex-col justify-center">
           <h5 className="text-lg font-semibold text-brand-charcoal mb-1">Duncan</h5>
-          <p className="text-xs text-neutral-400 mb-2">Mitered · Full Overlay · 2 1/2" Frame</p>
+          <p className="text-xs text-neutral-400 mb-2">Chamfer Shaker · Full Overlay · 2 1/2" Frame</p>
           <p className="text-sm text-neutral-600 leading-relaxed">
-            Clean mitered corners deliver a seamless, modern look that pairs beautifully with any paint or stain from the Hinge palette.
+            The chamfer shaker profile delivers a clean, modern look that pairs beautifully with any paint or stain from the Hinge palette.
           </p>
         </div>
       </div>
@@ -108,7 +108,7 @@ export default function ProDoorSelector() {
                 onClick={() => setSelectedPaint(p)}
                 className={`group relative aspect-square rounded-lg border-2 transition-all duration-200 ${
                   selectedPaint?.name === p.name
-                    ? 'border-pro-flame scale-105 shadow-md'
+                    ? 'border-select-flame scale-105 shadow-md'
                     : 'border-neutral-200 hover:border-neutral-400 hover:shadow-sm'
                 }`}
                 style={{ backgroundColor: p.hex }}
@@ -132,7 +132,7 @@ export default function ProDoorSelector() {
                 onClick={() => setSelectedStain(s)}
                 className={`group relative aspect-square rounded-lg border-2 overflow-hidden transition-all duration-200 ${
                   selectedStain?.name === s.name
-                    ? 'border-pro-flame scale-105 shadow-md'
+                    ? 'border-select-flame scale-105 shadow-md'
                     : 'border-neutral-200 hover:border-neutral-400 hover:shadow-sm'
                 }`}
                 title={s.name}
