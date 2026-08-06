@@ -1,15 +1,15 @@
 import { useState } from 'react';
 
 const specs = [
-  { category: 'Construction', custom: 'Frameless (European)', pro: 'Framed, Full-Overlay' },
-  { category: 'Customization', custom: 'Full Custom Sizing', pro: 'Standard Sizes' },
-  { category: 'Box Material', custom: '3/4" Plywood', pro: 'All-Wood Rugged Box' },
-  { category: 'Drawer Construction', custom: 'Hand-Sanded Dovetail', pro: 'Standard Dovetail' },
-  { category: 'Hardware', custom: 'Blum Soft-Close (Full Suite)', pro: 'Premium Blum® Soft-Close' },
-  { category: 'Finished Ends', custom: 'Flush Decorative Ends', pro: 'Standard Finished Ends' },
-  { category: 'Tolerances', custom: '1/16" Micro-Tolerance', pro: 'Standard Tolerances' },
-  { category: 'Lead Time', custom: '6-8 Weeks', pro: '3-4 Weeks' },
-  { category: 'Finish Options', custom: '10 Paints + 10 Stains + ColorDrop', pro: 'Duncan in Any Paint or Stain' },
+  { category: 'Construction', custom: 'Frameless (European)', select: 'Framed, Full-Overlay' },
+  { category: 'Customization', custom: 'Full Custom Sizing', select: 'Standard Sizes' },
+  { category: 'Box Material', custom: '3/4" Plywood', select: 'All-Wood Rugged Box' },
+  { category: 'Drawer Construction', custom: 'Hand-Sanded Dovetail', select: 'Standard Dovetail' },
+  { category: 'Hardware', custom: 'Blum Soft-Close (Full Suite)', select: 'Premium Blum® Soft-Close' },
+  { category: 'Finished Ends', custom: 'Flush Decorative Ends', select: 'Standard Finished Ends' },
+  { category: 'Tolerances', custom: '1/16" Micro-Tolerance', select: 'Standard Tolerances' },
+  { category: 'Lead Time', custom: '6-8 Weeks', select: '3-4 Weeks' },
+  { category: 'Finish Options', custom: '10 Paints + 10 Stains + ColorDrop', select: 'Duncan in Any Paint or Stain' },
 ];
 
 export default function CompareTable() {
@@ -27,9 +27,9 @@ export default function CompareTable() {
           <p className="text-white/50 text-[10px] tracking-[0.2em] uppercase mb-0.5">Hinge</p>
           <p className="text-white font-semibold text-sm md:text-base">Custom Series</p>
         </div>
-        <div className="bg-pro-flame p-4 md:p-6 text-center">
+        <div className="bg-select-flame p-4 md:p-6 text-center">
           <p className="text-white/70 text-[10px] tracking-[0.2em] uppercase mb-0.5">Hinge</p>
-          <p className="text-white font-semibold text-sm md:text-base">Pro Series</p>
+          <p className="text-white font-semibold text-sm md:text-base">Select Series</p>
         </div>
       </div>
 
@@ -48,7 +48,7 @@ export default function CompareTable() {
             <span className="text-sm text-neutral-600">{spec.custom}</span>
           </div>
           <div className="p-4 md:p-5 flex items-center justify-center text-center border-l border-neutral-100">
-            <span className="text-sm text-neutral-600">{spec.pro}</span>
+            <span className="text-sm text-neutral-600">{spec.select}</span>
           </div>
         </div>
       ))}

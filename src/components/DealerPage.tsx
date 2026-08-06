@@ -75,7 +75,7 @@ export default function DealerPage() {
             {[
               {
                 title: 'Two Product Lines',
-                desc: 'Offer clients both full-custom precision cabinetry and our value-engineered Pro Series — covering every project scope and budget.',
+                desc: 'Offer clients both full-custom precision cabinetry and our value-engineered Select Series — covering every project scope and budget.',
               },
               {
                 title: 'Dedicated Support',

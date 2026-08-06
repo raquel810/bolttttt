@@ -120,7 +120,7 @@ export default function ContactForm() {
           >
             <option value="" className="bg-brand-jet">Select a product line</option>
             <option value="Custom Series" className="bg-brand-jet">Hinge Custom Series</option>
-            <option value="Pro Series" className="bg-brand-jet">Hinge Pro Series</option>
+            <option value="Select Series" className="bg-brand-jet">Hinge Select Series</option>
             <option value="Both / Not Sure" className="bg-brand-jet">Both / Not Sure</option>
           </select>
         </div>

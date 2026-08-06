@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 
-type Line = 'Custom' | 'Pro';
+type Line = 'Custom' | 'Select';
 
 interface GalleryItem {
   src: string;
@@ -31,13 +31,13 @@ const items: GalleryItem[] = [
   { src: '/erving_hc-project3_03.jpg', alt: 'Erving alder custom stain wide view', line: 'Custom', door: 'Erving', finish: 'Alder Custom Stain' },
   { src: '/erving_hc-project4.jpg', alt: 'Erving custom finish kitchen', line: 'Custom', door: 'Erving', finish: 'Custom Finish' },
   { src: '/erving_hc-project4-2.jpg', alt: 'Erving custom finish detail', line: 'Custom', door: 'Erving', finish: 'Custom Finish' },
-  { src: '/tannin_hingepro-projectexample.jpg', alt: 'Pro natural wood cabinetry', line: 'Pro', door: 'Duncan', finish: 'Tannin' },
+  { src: '/tannin_hingepro-projectexample.jpg', alt: 'Select natural wood cabinetry', line: 'Select', door: 'Duncan', finish: 'Tannin' },
 ];
 
 const filters: { label: string; value: Line | 'All' }[] = [
   { label: 'All Installations', value: 'All' },
   { label: 'Custom Series', value: 'Custom' },
-  { label: 'Pro Series', value: 'Pro' },
+  { label: 'Select Series', value: 'Select' },
 ];
 
 export default function InteractiveGallery() {

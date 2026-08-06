@@ -6,7 +6,7 @@ import DoorStyles from './components/DoorStyles';
 import PremiumPrograms from './components/PremiumPrograms';
 import InteractiveGallery from './components/InteractiveGallery';
 import ContactForm from './components/ContactForm';
-import ProDoorSelector from './components/ProDoorSelector';
+import SelectDoorSelector from './components/SelectDoorSelector';
 import ProjectCarousel from './components/ProjectCarousel';
 
 function useInView(threshold = 0.15) {
@@ -61,18 +61,18 @@ function App() {
           </div>
 
           <div className="hidden md:flex items-center gap-8">
-            {['Custom', 'Doors', 'Finishes', 'Pro', 'Compare'].map((item) => (
+            {['Custom', 'Doors', 'Finishes', 'Select', 'Compare'].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className={`text-sm font-medium transition-colors hover:text-pro-flame ${scrolled ? 'text-neutral-700' : 'text-white/90'}`}
+                className={`text-sm font-medium transition-colors hover:text-select-flame ${scrolled ? 'text-neutral-700' : 'text-white/90'}`}
               >
                 {item}
               </a>
             ))}
             <a
               href="#dealers"
-              className={`text-sm font-medium transition-colors hover:text-pro-flame ${scrolled ? 'text-neutral-700' : 'text-white/90'}`}
+              className={`text-sm font-medium transition-colors hover:text-select-flame ${scrolled ? 'text-neutral-700' : 'text-white/90'}`}
             >
               Dealers
             </a>
@@ -88,7 +88,7 @@ function App() {
 
         {menuOpen && (
           <div className="md:hidden bg-white border-t border-neutral-100 px-6 py-4 space-y-3">
-            {['Custom', 'Doors', 'Finishes', 'Pro', 'Compare'].map((item) => (
+            {['Custom', 'Doors', 'Finishes', 'Select', 'Compare'].map((item) => (
               <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setMenuOpen(false)} className="block text-neutral-700 font-medium py-2">
                 {item}
               </a>
@@ -132,7 +132,7 @@ function App() {
               <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
             </a>
             <a href="#pro" className="group inline-flex items-center gap-2 border border-white/40 text-white text-sm font-medium tracking-wide uppercase px-7 py-3.5 rounded hover:border-white/70 hover:bg-white/10 transition-all">
-              Pro Series
+              Select Series
               <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
             </a>
           </div>
@@ -292,31 +292,31 @@ function App() {
       <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
         <img
           src="/tannin_hingepro-projectexample.jpg"
-          alt="Hinge Pro Duncan kitchen installation"
+          alt="Hinge Select Duncan kitchen installation"
           className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"
         />
         <div className="absolute inset-0 bg-white/60"></div>
         <div className="absolute inset-0 flex items-center justify-center">
           <img
-            src="/hinge-pro1.png"
-            alt="Hinge Pro"
+            src="/hingeselect-logo_op1-white_(Custom).png"
+            alt="Hinge Select"
             className="h-16 md:h-24 w-auto object-contain drop-shadow-sm"
           />
         </div>
       </section>
 
       {/* Pro Series Section */}
-      <section id="pro" ref={pro.ref} className="py-6 md:py-8 bg-surface-platinum">
+      <section id="select" ref={pro.ref} className="py-6 md:py-8 bg-surface-platinum">
         <div className={`max-w-7xl mx-auto px-6 md:px-12 lg:px-20 transition-all duration-700 ${pro.inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div className="order-2 lg:order-1 space-y-6">
               <div className="bg-white rounded-xl p-8 border border-neutral-200">
-                <h4 className="font-semibold text-pro-flame mb-4 text-sm tracking-wide uppercase">Value Proposition</h4>
+                <h4 className="font-semibold text-select-flame mb-4 text-sm tracking-wide uppercase">Value Proposition</h4>
                 <div className="space-y-4">
                   {[
                     { label: 'Construction', value: 'Rugged all-wood box construction' },
-                    { label: 'Door Style', value: 'Duncan — mitered flat panel, full overlay' },
+                    { label: 'Door Style', value: 'Duncan — chamfer shaker, full overlay' },
                     { label: 'Finishes', value: 'Any Hinge paint or stain' },
                     { label: 'Hardware', value: 'Premium Blum® Soft-Close standard' },
                     { label: 'Lead Time', value: '3–4 weeks' },
@@ -331,11 +331,11 @@ function App() {
               </div>
 
               {/* Pro Door Selection */}
-              <ProDoorSelector />
+              <SelectDoorSelector />
 
-              <div className="bg-pro-seashell rounded-xl p-8 border border-pro-flame/10">
+              <div className="bg-select-seashell rounded-xl p-8 border border-select-flame/10">
                 <div className="flex items-center gap-3 mb-4">
-                  <Clock size={18} className="text-pro-flame" />
+                  <Clock size={18} className="text-select-flame" />
                   <h4 className="font-semibold text-brand-charcoal">Accelerated Project Timelines</h4>
                 </div>
                 <p className="text-neutral-600 text-sm leading-relaxed">
@@ -345,12 +345,12 @@ function App() {
 
               {/* Request a Quote */}
               <div className="bg-white rounded-xl border border-neutral-200 p-8">
-                <p className="text-xs tracking-[0.2em] uppercase text-pro-rust font-semibold mb-2">Request a Quote</p>
-                <h4 className="text-xl font-bold text-brand-charcoal mb-2">Ready to spec your Pro project?</h4>
+                <p className="text-xs tracking-[0.2em] uppercase text-select-rust font-semibold mb-2">Request a Quote</p>
+                <h4 className="text-xl font-bold text-brand-charcoal mb-2">Ready to spec your Select project?</h4>
                 <p className="text-neutral-500 text-sm mb-6 leading-relaxed">Tell us about your project and a Hinge representative will follow up with pricing and lead time details.</p>
                 <a
                   href="#contact"
-                  className="inline-flex items-center gap-2 bg-pro-flame text-white text-sm font-semibold px-6 py-3 rounded-lg hover:bg-pro-rust transition-colors duration-200"
+                  className="inline-flex items-center gap-2 bg-select-flame text-white text-sm font-semibold px-6 py-3 rounded-lg hover:bg-select-rust transition-colors duration-200"
                 >
                   Start Your Project
                   <ArrowRight size={15} />
@@ -359,23 +359,23 @@ function App() {
             </div>
 
             <div className="order-1 lg:order-2">
-              <p className="text-pro-rust text-xs tracking-[0.3em] uppercase mb-3">Hinge Pro Series</p>
+              <p className="text-select-rust text-xs tracking-[0.3em] uppercase mb-3">Hinge Select Series</p>
               <h2 className="text-3xl md:text-5xl font-bold text-brand-charcoal leading-tight mb-6">
                 One Versatile Door.<br />Any Finish. Affordable Luxury.
               </h2>
               <p className="text-neutral-600 text-lg leading-relaxed mb-8">
-                The Hinge Pro Series delivers a single, beautifully crafted Duncan door in any paint or stain from the full Hinge palette—paired with rugged all-wood box construction and premium Blum hardware. Versatile enough for any style, delivered in 3–4 weeks at a price that makes luxury accessible.
+                The Hinge Select Series delivers the Duncan chamfer shaker door in any paint or stain from the full Hinge palette—paired with rugged all-wood box construction and premium Blum hardware. Versatile enough for any style, delivered in 3–4 weeks at a price that makes luxury accessible.
               </p>
 
               <div className="space-y-6">
                 {[
-                  { icon: Layers, title: 'Rugged All-Wood Construction', desc: 'Solid wood box construction paired with the mitered Duncan door delivers structural integrity and a clean, modern aesthetic built to perform.' },
-                  { icon: Sparkles, title: 'Premium Blum® Soft-Close', desc: 'World-class European hardware—the same Blum® moving parts found in ultra-luxury custom kitchens—standard on every Pro unit.' },
+                  { icon: Layers, title: 'Rugged All-Wood Construction', desc: 'Solid wood box construction paired with the Duncan chamfer shaker door delivers structural integrity and a clean, modern aesthetic built to perform.' },
+                  { icon: Sparkles, title: 'Premium Blum® Soft-Close', desc: 'World-class European hardware—the same Blum® moving parts found in ultra-luxury custom kitchens—standard on every Select unit.' },
                   { icon: Shield, title: '3–4 Week Lead Times', desc: 'Get your project done faster. Streamlined production means reliable scheduling for trade professionals and homeowners alike.' },
                 ].map(({ icon: Icon, title, desc }) => (
                   <div key={title} className="flex gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-pro-flame/10 flex items-center justify-center">
-                      <Icon size={18} className="text-pro-flame" />
+                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-select-flame/10 flex items-center justify-center">
+                      <Icon size={18} className="text-select-flame" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-brand-charcoal mb-1">{title}</h4>
@@ -419,7 +419,7 @@ function App() {
           <div className="text-center mb-16">
             <p className="text-neutral-400 text-xs tracking-[0.3em] uppercase mb-3">Side by Side</p>
             <h2 className="text-3xl md:text-4xl font-bold text-brand-charcoal mb-4">Compare Our Lines</h2>
-            <p className="text-neutral-500 max-w-lg mx-auto">Understanding the distinction between our Custom and Pro series helps you select the right solution for every project.</p>
+            <p className="text-neutral-500 max-w-lg mx-auto">Understanding the distinction between our Custom and Select series helps you select the right solution for every project.</p>
           </div>
           <CompareTable />
         </div>
@@ -525,7 +525,7 @@ function App() {
                 <h5 className="text-white/60 text-xs tracking-[0.2em] uppercase mb-3">Product Lines</h5>
                 <ul className="space-y-2 text-sm text-neutral-500">
                   <li><a href="#custom" className="hover:text-white transition-colors">Custom Series</a></li>
-                  <li><a href="#pro" className="hover:text-white transition-colors">Pro Series</a></li>
+                  <li><a href="#select" className="hover:text-white transition-colors">Select Series</a></li>
                   <li><a href="#finishes" className="hover:text-white transition-colors">Finishes</a></li>
                 </ul>
               </div>
