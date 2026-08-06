@@ -5,10 +5,10 @@ type DoorName = 'Erving' | 'Iverson';
 type FinishKind = 'stain' | 'paint';
 interface SlideTag {
   door: DoorName;
-  finish: { kind: FinishKind; name: string; label: string };
+  finish: { kind: FinishKind; name: string; label: string; colordrop?: boolean };
 }
 
-const IV_TAG: SlideTag['finish'] = { kind: 'paint', name: 'White Sesame', label: 'ColorDrop · White Sesame SW 9586' };
+const IV_TAG: SlideTag['finish'] = { kind: 'paint', name: 'White Sesame', label: 'ColorDrop · White Sesame SW 9586', colordrop: true };
 const ER_TAG: SlideTag['finish'] = { kind: 'stain', name: 'Rye', label: 'Stain · Rye' };
 
 const slides: { src: string; alt: string; tags: SlideTag[] }[] = [
@@ -91,9 +91,16 @@ function selectDoor(name: string) {
   window.dispatchEvent(new CustomEvent('hinge:select-door', { detail: { name } }));
 }
 
-function selectFinish(kind: FinishKind, name: string) {
-  document.getElementById('finishes')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  window.dispatchEvent(new CustomEvent('hinge:select-finish', { detail: { kind, name } }));
+function selectFinish(kind: FinishKind, name: string, colordrop?: boolean) {
+  if (colordrop) {
+    document.getElementById('custom')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(() => {
+      window.dispatchEvent(new CustomEvent('hinge:open-colordrop'));
+    }, 600);
+  } else {
+    document.getElementById('finishes')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    window.dispatchEvent(new CustomEvent('hinge:select-finish', { detail: { kind, name } }));
+  }
 }
 
 export default function ProjectCarousel() {
@@ -162,7 +169,7 @@ export default function ProjectCarousel() {
               {tag.door}
             </button>
             <button
-              onClick={() => selectFinish(tag.finish.kind, tag.finish.name)}
+              onClick={() => selectFinish(tag.finish.kind, tag.finish.name, tag.finish.colordrop)}
               className="inline-flex items-center gap-1.5 bg-black/45 backdrop-blur-sm text-white text-[10px] font-medium px-2.5 py-1 rounded-full hover:bg-black/65 transition-colors"
             >
               {tag.finish.label}

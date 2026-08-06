@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronDown, Target, Box, Paintbrush2, Cpu, ScanLine } from 'lucide-react';
 
 const optifitCorePillars = [
@@ -38,6 +38,12 @@ export default function PremiumPrograms() {
   const toggle = (panel: 'colordrop' | 'optifit') => {
     setOpenPanel(openPanel === panel ? null : panel);
   };
+
+  useEffect(() => {
+    const handler = () => setOpenPanel('colordrop');
+    window.addEventListener('hinge:open-colordrop', handler);
+    return () => window.removeEventListener('hinge:open-colordrop', handler);
+  }, []);
 
   return (
     <div className="space-y-3">

@@ -193,6 +193,16 @@ function App() {
                   </div>
                 ))}
               </div>
+
+              <div className="mt-10 bg-surface-platinum rounded-xl p-6 border border-neutral-100">
+                <p className="text-neutral-400 text-xs tracking-[0.2em] uppercase mb-4">Frameless Construction</p>
+                <img
+                  src="/frameless-wire_hingecustom.png"
+                  alt="Frameless European cabinet construction wireframe"
+                  className="w-full max-w-md mx-auto object-contain"
+                  loading="lazy"
+                />
+              </div>
             </div>
 
             <div>
@@ -383,6 +393,16 @@ function App() {
                     </div>
                   </div>
                 ))}
+              </div>
+
+              <div className="mt-10 bg-select-seashell rounded-xl p-6 border border-select-flame/10">
+                <p className="text-select-rust text-xs tracking-[0.2em] uppercase mb-4">Framed Construction</p>
+                <img
+                  src="/framed-wireorange_HINGEselect.png"
+                  alt="Framed full-overlay cabinet construction wireframe"
+                  className="w-full max-w-md mx-auto object-contain"
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>
