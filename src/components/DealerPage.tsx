@@ -70,7 +70,6 @@ const carouselSlides = [
   { src: '/strohl-hingeselect\u00AD_photo_3.jpg', finish: 'ColorDrop Ivory / Navy' },
 
   { src: '/tannin_hingepro-projectexample.jpg', finish: 'Tannin' },
-  { src: '/duncan_hc-door.jpg', finish: 'Duncan Door Detail' },
 ];
 
 interface PaintSwatch {
@@ -98,6 +97,7 @@ const paints: PaintSwatch[] = [
 ];
 
 const stains: StainSwatch[] = [
+  { name: 'Port', image: '/port_hc-stain.jpg' },
   { name: 'Oat', image: '/oat_hc-stain.jpg' },
   { name: 'Honey', image: '/honey_hc-stain.jpg' },
   { name: 'Fawn', image: '/fawn_hc-stain.jpg' },
@@ -108,7 +108,6 @@ const stains: StainSwatch[] = [
   { name: 'Pumice', image: '/pumice_hc-stain.jpg' },
   { name: 'Shale', image: '/shale_hc-stain.jpg' },
   { name: 'Graphite', image: '/graphite_hc-stain.jpg' },
-  { name: 'Port', image: '/port_hc-stain.jpg' },
 ];
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
@@ -239,6 +238,20 @@ export default function DealerPage({ onBack }: DealerPageProps) {
           <p className="text-neutral-500 text-sm text-center max-w-xl mx-auto mb-12">
             Every Select cabinet is built to the same exacting standard — no tiers, no upgrades to chase.
           </p>
+
+          <div className="mb-10 rounded-2xl overflow-hidden shadow-lg border border-neutral-200">
+            <img
+              src="/duncan_hc-door.jpg"
+              alt="Duncan door detail — 5-piece mortise & tenon shaker"
+              className="w-full h-64 md:h-80 object-cover"
+              loading="lazy"
+            />
+            <div className="bg-white px-5 py-3 text-center">
+              <span className="text-sm font-semibold text-brand-charcoal">The Duncan Door</span>
+              <span className="mx-2 text-neutral-300">—</span>
+              <span className="text-sm text-neutral-500">5-piece mortise & tenon shaker in solid birch</span>
+            </div>
+          </div>
 
           <div className="rounded-xl border border-neutral-200 overflow-hidden">
             {[
