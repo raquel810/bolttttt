@@ -42,8 +42,8 @@ const stats = [
   },
   {
     icon: Ruler,
-    headline: 'One Timeless Style',
-    sub: 'Exclusively focused on the industry\'s #1 selling door — the 5-piece Shaker. Single-SKU simplicity that eliminates catalog clutter.',
+    headline: 'The Duncan Door',
+    sub: 'Exclusively focused on the industry\'s #1 selling style — the Duncan 5-piece shaker. Single-SKU simplicity that eliminates catalog clutter.',
   },
   {
     icon: Paintbrush,
@@ -197,9 +197,9 @@ export default function DealerPage({ onBack }: DealerPageProps) {
           </h1>
           <p className="text-neutral-400 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
             Premium cabinetry built, assembled, and finished in Plainfield, Illinois. The Select
-            Series features the Duncan 5-piece mortise & tenon shaker door in solid birch —
-            assembled from unfinished inventory, hand-prepared, and finished to exact client
-            specifications with Blum soft-close hinges and 20+ finish options, delivered in 3 to 4 weeks.
+            Series features the Duncan shaker door in solid birch — assembled from unfinished
+            inventory, hand-prepared, and finished to exact client specifications with Blum
+            soft-close hinges and 20+ finish options, delivered in 3 to 4 weeks.
           </p>
         </div>
       </section>
@@ -241,7 +241,7 @@ export default function DealerPage({ onBack }: DealerPageProps) {
 
           <div className="rounded-xl border border-neutral-200 overflow-hidden">
             {[
-              ['Door Style', '5-piece mortise & tenon frame, 45\u00B0 inside bevel, flat recessed center panel'],
+              ['Door Style', 'Duncan 5-piece mortise & tenon frame, 45\u00B0 inside bevel, flat recessed center panel'],
               ['Door Material', 'Solid birch frame with veneered center panel'],
               ['Face Frame', '1\u00BE" \u00D7 \u00BE" solid hardwood'],
               ['Cabinet Box', '\u00BD" all-plywood with UV-coated matching exterior'],
