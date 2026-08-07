@@ -74,11 +74,13 @@ function App() {
               src="/hinge22.png"
               alt="Hinge Cabinetry"
               className={`h-9 w-auto absolute left-0 top-0 transition-opacity duration-300 ${scrolled ? 'opacity-100' : 'opacity-0'}`}
+              loading="lazy"
             />
             <img
               src="/hinge2.png"
               alt="Hinge Cabinetry"
               className={`h-9 w-auto transition-opacity duration-300 ${scrolled ? 'opacity-0' : 'opacity-100'}`}
+              loading="lazy"
             />
           </div>
 
@@ -166,6 +168,7 @@ function App() {
             src="/Image_20260201_142934_540.png"
             alt=""
             className="h-40 w-auto object-contain invert"
+            loading="lazy"
           />
         </div>
 
@@ -334,6 +337,7 @@ function App() {
             src="/hingeselect-logo_op1.png"
             alt="Hinge Select"
             className="h-16 md:h-24 w-auto object-contain drop-shadow-sm"
+            loading="lazy"
           />
         </div>
       </section>
@@ -558,6 +562,7 @@ function App() {
                   src="/hinge2.png"
                   alt="Hinge Cabinetry"
                   className="h-8 w-auto brightness-0 invert opacity-70"
+                  loading="lazy"
                 />
               </div>
               <p className="text-neutral-500 text-sm max-w-xs">Precision crafted in Plainfield, Illinois. Modern cabinetry engineered around the rhythm of your everyday life.</p>

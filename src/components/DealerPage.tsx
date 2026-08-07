@@ -171,7 +171,7 @@ export default function DealerPage({ onBack }: DealerPageProps) {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-12 py-4">
           <a href="#" className="flex items-center gap-2 h-9">
-            <img src="/hinge22.png" alt="Hinge Cabinetry" className="h-9 w-auto" />
+            <img src="/hinge22.png" alt="Hinge Cabinetry" className="h-9 w-auto" loading="lazy" />
           </a>
           <button
             onClick={onBack}
@@ -191,6 +191,7 @@ export default function DealerPage({ onBack }: DealerPageProps) {
             src="/hingeselect-logo_op1.png"
             alt="Hinge Select"
             className="h-12 md:h-16 w-auto mx-auto mb-8"
+            loading="lazy"
           />
           <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl text-white leading-[1.1] mb-5">
             Dealer Program
@@ -549,7 +550,7 @@ export default function DealerPage({ onBack }: DealerPageProps) {
       {/* Footer */}
       <footer className="bg-brand-ink py-10">
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-4">
-          <img src="/hingeselect-logo_op1.png" alt="Hinge Select" className="h-7 w-auto opacity-60" />
+          <img src="/hingeselect-logo_op1.png" alt="Hinge Select" className="h-7 w-auto opacity-60" loading="lazy" />
           <p className="text-neutral-600 text-xs">&copy; 2026 Hinge Cabinetry. All rights reserved.</p>
         </div>
       </footer>

@@ -273,6 +273,7 @@ export default function ColorPalette() {
                   src={finish.image}
                   alt={`${finish.name} stain finish`}
                   className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <span className="absolute bottom-2.5 left-0 right-0 text-center text-white text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-md">
@@ -295,6 +296,7 @@ export default function ColorPalette() {
                   src={selectedStain.image}
                   alt={`${selectedStain.name} stain`}
                   className="w-20 h-20 rounded-lg object-cover shadow-sm flex-shrink-0"
+                  loading="lazy"
                 />
                 <div className="flex-1 min-w-0">
                   <p className="font-semibold text-brand-charcoal text-lg">{selectedStain.name}</p>

@@ -168,6 +168,7 @@ export default function DoorStyles() {
                 className={`max-h-full max-w-full object-contain transition-all duration-200 ${
                   selected.name === door.name ? 'scale-105' : 'opacity-70 group-hover:opacity-100'
                 }`}
+                loading="lazy"
               />
             </div>
             <span className={`text-[11px] font-medium transition-colors ${
@@ -189,6 +190,7 @@ export default function DoorStyles() {
               src={selected.full}
               alt={`${selected.name} door style`}
               className="max-h-[260px] w-auto object-contain animate-fade-in"
+              loading="lazy"
             />
           </div>
 
@@ -224,6 +226,7 @@ export default function DoorStyles() {
                   src={selected.profile}
                   alt={`${selected.name} cross-section`}
                   className="h-full w-auto object-contain"
+                  loading="lazy"
                 />
               </div>
             </div>

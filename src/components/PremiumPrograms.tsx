@@ -59,7 +59,7 @@ export default function PremiumPrograms() {
           className="w-full flex items-center justify-between px-6 py-5 hover:bg-neutral-50 transition-colors"
         >
           <div className="flex items-center gap-4">
-            <img src="/colordrop-logo-hinge_blue.png" alt="ColorDrop" className="h-7 w-auto" />
+            <img src="/colordrop-logo-hinge_blue.png" alt="ColorDrop" className="h-7 w-auto" loading="lazy" />
             <span className="text-sm font-semibold text-brand-charcoal">Custom Color Made Simple</span>
           </div>
           <ChevronDown
@@ -97,7 +97,7 @@ export default function PremiumPrograms() {
           className="w-full flex items-center justify-between px-6 py-5 hover:bg-neutral-50 transition-colors"
         >
           <div className="flex items-center gap-4">
-            <img src="/optifit-logo_blue.png" alt="OptiFit" className="h-6 w-auto" />
+            <img src="/optifit-logo_blue.png" alt="OptiFit" className="h-6 w-auto" loading="lazy" />
             <span className="text-sm font-semibold text-brand-charcoal">Eliminating On-Site Guesswork</span>
           </div>
           <ChevronDown
@@ -118,7 +118,7 @@ export default function PremiumPrograms() {
               {/* OptiFit Core Tier */}
               <div className="mb-6">
                 <div className="flex items-center gap-2 mb-4">
-                  <img src="/optifit-logo_blue.png" alt="OptiFit" className="h-4 w-auto" />
+                  <img src="/optifit-logo_blue.png" alt="OptiFit" className="h-4 w-auto" loading="lazy" />
                   <span className="text-xs font-bold tracking-[0.1em] uppercase text-brand-charcoal/50">Core Engineering</span>
                 </div>
                 <div className="space-y-4">
@@ -142,7 +142,7 @@ export default function PremiumPrograms() {
               {/* OptiFit+ Upgrade Tier */}
               <div className="border-t border-neutral-100 pt-5">
                 <div className="flex items-center gap-2 mb-4">
-                  <img src="/optifit-plus-logo-white.png" alt="OptiFit+" className="h-4 w-auto invert opacity-70" />
+                  <img src="/optifit-plus-logo-white.png" alt="OptiFit+" className="h-4 w-auto invert opacity-70" loading="lazy" />
                   <span className="text-xs font-bold tracking-[0.1em] uppercase text-brand-charcoal/50">Upgrade</span>
                   <span className="bg-brand-charcoal/10 text-brand-charcoal text-[9px] font-bold px-1.5 py-0.5 rounded">+</span>
                 </div>

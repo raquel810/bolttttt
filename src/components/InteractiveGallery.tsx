@@ -190,6 +190,7 @@ export default function InteractiveGallery() {
               src={active.src}
               alt={active.alt}
               className="max-w-full max-h-[78vh] object-contain rounded-lg shadow-2xl"
+              loading="lazy"
             />
             <div className="mt-4 text-center">
               <p className="text-white text-sm font-semibold">{active.door}</p>

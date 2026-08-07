@@ -59,6 +59,7 @@ export default function SelectDoorSelector() {
             src="/hingepro_duncanunfinished.jpg"
             alt="Duncan door unfinished"
             className="w-full h-auto object-contain"
+            loading="lazy"
           />
         </div>
         <div className="flex-1 min-w-0 flex flex-col justify-center">
@@ -137,7 +138,7 @@ export default function SelectDoorSelector() {
                 }`}
                 title={s.name}
               >
-                <img src={s.image} alt={s.name} className="w-full h-full object-cover" />
+                <img src={s.image} alt={s.name} className="w-full h-full object-cover" loading="lazy" />
                 <span className="absolute bottom-0 inset-x-0 bg-black/50 text-white text-[9px] font-medium text-center py-0.5">
                   {s.name}
                 </span>
@@ -157,7 +158,7 @@ export default function SelectDoorSelector() {
             {selectedStain && (
               <>
                 <div className="w-8 h-8 rounded-md border border-neutral-200 flex-shrink-0 overflow-hidden">
-                  <img src={selectedStain.image} alt={selectedStain.name} className="w-full h-full object-cover" />
+                  <img src={selectedStain.image} alt={selectedStain.name} className="w-full h-full object-cover" loading="lazy" />
                 </div>
                 <span className="text-sm font-medium text-brand-charcoal">Duncan — {selectedStain.name}</span>
               </>
