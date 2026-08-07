@@ -309,8 +309,8 @@ function App() {
         <div className="absolute inset-0 bg-white/60"></div>
         <div className="absolute inset-0 flex items-center justify-center">
           <img
-            src="/hingeselect-logo_op1-white_(Custom).png"
-            alt="Hinge Select"
+            src="/image.png"
+            alt="Hinge Pro"
             className="h-16 md:h-24 w-auto object-contain drop-shadow-sm"
           />
         </div>
@@ -400,7 +400,7 @@ function App() {
                 <img
                   src="/framed-wireorange_HINGEselect.png"
                   alt="Framed full-overlay cabinet construction wireframe"
-                  className="w-full max-w-md mx-auto object-contain"
+                  className="w-full max-w-md mx-auto object-contain brightness-0 invert"
                   loading="lazy"
                 />
               </div>
