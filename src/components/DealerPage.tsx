@@ -23,12 +23,12 @@ const stats = [
   {
     icon: MapPinned,
     headline: 'Plainfield, Illinois',
-    sub: 'Built & finished in our own facility — no outsourced finishing, no middlemen.',
+    sub: 'Built, assembled, and finished in our own facility — no outsourced finishing, no middlemen.',
   },
   {
     icon: Award,
-    headline: 'Blum Hardware',
-    sub: 'Every unit ships with premium Austrian Blum hinges, runners, and lift systems.',
+    headline: 'Blum Soft-Close Hinges',
+    sub: 'Every unit ships with premium Blum 6-way adjustable concealed hinges with integrated soft-close.',
   },
   {
     icon: Clock,
@@ -37,18 +37,18 @@ const stats = [
   },
   {
     icon: Layers,
-    headline: '3/4" Plywood Box',
-    sub: 'All-plywood construction standard. No particle board, no compromises.',
+    headline: 'All-Plywood Construction',
+    sub: '1/2" plywood box with UV-coated exterior, 3/4" adjustable plywood shelves, and 5/8" solid dovetail drawer boxes.',
   },
   {
     icon: Ruler,
-    headline: '1/16" Tolerance',
-    sub: 'Precision-built for clean installs and fewer callbacks.',
+    headline: 'One Timeless Style',
+    sub: 'Exclusively focused on the industry\'s #1 selling door — the 5-piece Shaker. Single-SKU simplicity that eliminates catalog clutter.',
   },
   {
     icon: Paintbrush,
     headline: '20+ Finishes',
-    sub: '10 curated paints, 11 stains, plus ColorDrop custom color matching.',
+    sub: 'Curated paints and wood stains, plus the ColorDrop program for custom paint and stain color matching.',
   },
 ];
 
@@ -196,9 +196,10 @@ export default function DealerPage({ onBack }: DealerPageProps) {
             Dealer Program
           </h1>
           <p className="text-neutral-400 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-            Premium cabinetry built and finished in Plainfield, Illinois. The Select Series pairs the
-            Duncan chamfer shaker door with all-plywood construction, Blum hardware, and 20+ finish
-            options — delivered in 3 to 4 weeks.
+            Premium cabinetry built, assembled, and finished in Plainfield, Illinois. The Select
+            Series features the Duncan 5-piece mortise & tenon shaker door in solid birch —
+            assembled from unfinished inventory, hand-prepared, and finished to exact client
+            specifications with Blum soft-close hinges and 20+ finish options, delivered in 3 to 4 weeks.
           </p>
         </div>
       </section>
@@ -221,6 +222,47 @@ export default function DealerPage({ onBack }: DealerPageProps) {
                 </div>
                 <h3 className="text-brand-charcoal font-bold text-lg mb-1.5">{headline}</h3>
                 <p className="text-neutral-500 text-sm leading-relaxed">{sub}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Construction Specs */}
+      <section className="py-16 md:py-24 bg-white border-b border-neutral-100">
+        <div className="max-w-4xl mx-auto px-6 md:px-12">
+          <p className="text-select-flame text-xs tracking-[0.3em] uppercase text-center mb-3">Specifications</p>
+          <h2 className="text-2xl md:text-3xl font-serif text-brand-charcoal text-center mb-4">
+            Construction Details
+          </h2>
+          <p className="text-neutral-500 text-sm text-center max-w-xl mx-auto mb-12">
+            Every Select cabinet is built to the same exacting standard — no tiers, no upgrades to chase.
+          </p>
+
+          <div className="rounded-xl border border-neutral-200 overflow-hidden">
+            {[
+              ['Door Style', '5-piece mortise & tenon frame, 45\u00B0 inside bevel, flat recessed center panel'],
+              ['Door Material', 'Solid birch frame with veneered center panel'],
+              ['Face Frame', '1\u00BE" \u00D7 \u00BE" solid hardwood'],
+              ['Cabinet Box', '\u00BD" all-plywood with UV-coated matching exterior'],
+              ['Back Panel', '\u00BD" full-height plywood'],
+              ['Cabinet Interior', 'UV-coated natural plywood'],
+              ['Shelving', '\u00BE" adjustable plywood shelves with front edgebanding'],
+              ['Drawer Box', '\u215D" solid dovetail construction'],
+              ['Drawer Glides', 'Undermount full-extension soft-close'],
+              ['Hinges', 'Blum 6-way adjustable concealed with integrated soft-close'],
+              ['Finish Application', 'Shop-applied multi-coat spray \u2014 commercial-grade primers, topcoats & clear sealers'],
+            ].map(([label, value], i) => (
+              <div
+                key={label}
+                className={`flex flex-col sm:flex-row ${i % 2 === 0 ? 'bg-surface-platinum' : 'bg-white'}`}
+              >
+                <div className="sm:w-44 md:w-52 shrink-0 px-5 pt-4 pb-1 sm:py-4 font-semibold text-sm text-brand-charcoal">
+                  {label}
+                </div>
+                <div className="px-5 pb-4 sm:py-4 text-sm text-neutral-600 leading-relaxed">
+                  {value}
+                </div>
               </div>
             ))}
           </div>
@@ -307,7 +349,8 @@ export default function DealerPage({ onBack }: DealerPageProps) {
           </h2>
           <p className="text-neutral-500 text-sm text-center max-w-xl mx-auto mb-14">
             Every paint and stain is available on the Duncan door. Need a color outside the palette?
-            Ask about ColorDrop custom color matching.
+            The ColorDrop program offers custom paint and stain color matching — so you never turn
+            away a job due to a limited factory palette.
           </p>
 
           {/* Paints */}
