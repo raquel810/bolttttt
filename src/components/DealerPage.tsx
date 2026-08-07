@@ -68,7 +68,7 @@ const carouselSlides = [
   { src: '/strohl-hingeselect\u00AD_photo_1.jpg', finish: 'ColorDrop Ivory / Navy' },
   { src: '/strohl-hingeselect\u00AD_photo_2.jpg', finish: 'ColorDrop Ivory / Navy' },
   { src: '/strohl-hingeselect\u00AD_photo_3.jpg', finish: 'ColorDrop Ivory / Navy' },
-  { src: '/froemel-hingeselect\u00AD_photo_0.jpg', finish: 'ColorDrop Storm' },
+
   { src: '/tannin_hingepro-projectexample.jpg', finish: 'Tannin' },
   { src: '/duncan_hc-door.jpg', finish: 'Duncan Door Detail' },
 ];

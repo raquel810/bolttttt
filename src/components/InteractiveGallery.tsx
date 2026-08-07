@@ -47,7 +47,7 @@ const items: GalleryItem[] = [
   { src: '/strohl-hingeselect\u00AD_photo_1.jpg', alt: 'Strohl kitchen upper detail', line: 'Select', door: 'Duncan', finish: 'ColorDrop Ivory / Navy' },
   { src: '/strohl-hingeselect\u00AD_photo_2.jpg', alt: 'Strohl kitchen lower detail', line: 'Select', door: 'Duncan', finish: 'ColorDrop Ivory / Navy' },
   { src: '/strohl-hingeselect\u00AD_photo_3.jpg', alt: 'Strohl kitchen wide view', line: 'Select', door: 'Duncan', finish: 'ColorDrop Ivory / Navy' },
-  { src: '/froemel-hingeselect\u00AD_photo_0.jpg', alt: 'Froemel kitchen ColorDrop Storm', line: 'Select', door: 'Duncan', finish: 'ColorDrop Storm' },
+
   { src: '/unnamedgreen-hingeselect\u00AD_photo_0.jpg', alt: 'Kitchen in ColorDrop Fir', line: 'Select', door: 'Duncan', finish: 'ColorDrop Fir' },
   { src: '/unnamedgreen-hingeselect\u00AD_photo_1.jpg', alt: 'ColorDrop Fir kitchen detail', line: 'Select', door: 'Duncan', finish: 'ColorDrop Fir' },
   { src: '/unnamedgreen-hingeselect\u00AD_photo_2.jpg', alt: 'ColorDrop Fir kitchen wide', line: 'Select', door: 'Duncan', finish: 'ColorDrop Fir' },
