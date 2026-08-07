@@ -243,7 +243,7 @@ export default function DealerPage({ onBack }: DealerPageProps) {
             <img
               src="/duncan_hc-door.jpg"
               alt="Duncan door detail — 5-piece mortise & tenon shaker"
-              className="w-full h-64 md:h-80 object-cover"
+              className="w-full object-contain bg-neutral-50"
               loading="lazy"
             />
             <div className="bg-white px-5 py-3 text-center">
