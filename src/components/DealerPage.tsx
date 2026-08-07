@@ -1,13 +1,141 @@
-import { useState, FormEvent } from 'react';
-import { Send, CheckCircle, AlertCircle, ArrowLeft, Building2, MapPin, Phone, Mail, User } from 'lucide-react';
+import { useState, useEffect, useCallback, FormEvent } from 'react';
+import {
+  Send,
+  CheckCircle,
+  AlertCircle,
+  ArrowLeft,
+  Building2,
+  MapPin,
+  Phone,
+  Mail,
+  User,
+  ChevronLeft,
+  ChevronRight,
+  Ruler,
+  Clock,
+  Layers,
+  Paintbrush,
+  MapPinned,
+  Award,
+} from 'lucide-react';
 
+const stats = [
+  {
+    icon: MapPinned,
+    headline: 'Plainfield, Illinois',
+    sub: 'Built & finished in our own facility — no outsourced finishing, no middlemen.',
+  },
+  {
+    icon: Award,
+    headline: 'Blum Hardware',
+    sub: 'Every unit ships with premium Austrian Blum hinges, runners, and lift systems.',
+  },
+  {
+    icon: Clock,
+    headline: '3–4 Week Lead',
+    sub: 'Reliable scheduling your clients can count on — spec to delivery.',
+  },
+  {
+    icon: Layers,
+    headline: '3/4" Plywood Box',
+    sub: 'All-plywood construction standard. No particle board, no compromises.',
+  },
+  {
+    icon: Ruler,
+    headline: '1/16" Tolerance',
+    sub: 'Precision-built for clean installs and fewer callbacks.',
+  },
+  {
+    icon: Paintbrush,
+    headline: '20+ Finishes',
+    sub: '10 curated paints, 11 stains, plus ColorDrop custom color matching.',
+  },
+];
 
+const carouselSlides = [
+  { src: '/kilcoyne-hingeselect\u00AD_photo_0.jpg', finish: 'Graphite' },
+  { src: '/kilcoyne-hingeselect\u00AD_photo_1.jpg', finish: 'Graphite' },
+  { src: '/kilcoyne-hingeselect\u00AD_photo_2.jpg', finish: 'Graphite' },
+  { src: '/morawski-hingeselect\u00AD_photo_0.jpg', finish: 'Graphite / ColorDrop Ivory' },
+  { src: '/morawski-hingeselect\u00AD_photo_1.jpg', finish: 'Graphite / ColorDrop Ivory' },
+  { src: '/morawski-hingeselect\u00AD_photo_2.jpg', finish: 'Graphite / ColorDrop Ivory' },
+  { src: '/morawski-hingeselect\u00AD_photo_3.jpg', finish: 'Graphite / ColorDrop Ivory' },
+  { src: '/stevens-hingeselect\u00AD_photo_0.jpg', finish: 'Stone' },
+  { src: '/stevens-hingeselect\u00AD_photo_1.jpg', finish: 'Stone' },
+  { src: '/stevens-hingeselect\u00AD_photo_2.jpg', finish: 'Stone' },
+  { src: '/stevens-hingeselect\u00AD_photo_3.jpg', finish: 'Stone' },
+  { src: '/strohl-hingeselect\u00AD_photo_0.jpg', finish: 'ColorDrop Ivory / Navy' },
+  { src: '/strohl-hingeselect\u00AD_photo_1.jpg', finish: 'ColorDrop Ivory / Navy' },
+  { src: '/strohl-hingeselect\u00AD_photo_2.jpg', finish: 'ColorDrop Ivory / Navy' },
+  { src: '/strohl-hingeselect\u00AD_photo_3.jpg', finish: 'ColorDrop Ivory / Navy' },
+  { src: '/froemel-hingeselect\u00AD_photo_0.jpg', finish: 'ColorDrop Storm' },
+  { src: '/tannin_hingepro-projectexample.jpg', finish: 'Tannin' },
+  { src: '/duncan_hc-door.jpg', finish: 'Duncan Door Detail' },
+];
+
+interface PaintSwatch {
+  name: string;
+  hex: string;
+  textLight?: boolean;
+}
+
+interface StainSwatch {
+  name: string;
+  image: string;
+}
+
+const paints: PaintSwatch[] = [
+  { name: 'Polar', hex: '#F8F7F1' },
+  { name: 'Arctic', hex: '#F1EDEC' },
+  { name: 'Moonlight', hex: '#DFD3C3' },
+  { name: 'Stone', hex: '#CCC8BF' },
+  { name: 'Slate', hex: '#7F817E', textLight: true },
+  { name: 'Sage', hex: '#95978A' },
+  { name: 'Basil', hex: '#626F61', textLight: true },
+  { name: 'Harbor', hex: '#758B9A', textLight: true },
+  { name: 'Navy', hex: '#35454E', textLight: true },
+  { name: 'Onyx', hex: '#2F2F30', textLight: true },
+];
+
+const stains: StainSwatch[] = [
+  { name: 'Oat', image: '/oat_hc-stain.jpg' },
+  { name: 'Honey', image: '/honey_hc-stain.jpg' },
+  { name: 'Fawn', image: '/fawn_hc-stain.jpg' },
+  { name: 'Rye', image: '/rye_hc-stain.jpg' },
+  { name: 'Reed', image: '/reed_hc-stain.jpg' },
+  { name: 'Cask', image: '/cask_hc-stain.jpg' },
+  { name: 'Alcove', image: '/alcove_hc-stain.jpg' },
+  { name: 'Pumice', image: '/pumice_hc-stain.jpg' },
+  { name: 'Shale', image: '/shale_hc-stain.jpg' },
+  { name: 'Graphite', image: '/graphite_hc-stain.jpg' },
+  { name: 'Port', image: '/port_hc-stain.jpg' },
+];
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
-export default function DealerPage() {
+interface DealerPageProps {
+  onBack: () => void;
+}
+
+export default function DealerPage({ onBack }: DealerPageProps) {
   const [status, setStatus] = useState<FormStatus>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
+  }, []);
+
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev - 1 + carouselSlides.length) % carouselSlides.length);
+  }, []);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(nextSlide, 4500);
+    return () => clearInterval(timer);
+  }, [isPaused, nextSlide]);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -39,74 +167,199 @@ export default function DealerPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
+      {/* Nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-12 py-4">
           <a href="#" className="flex items-center gap-2 h-9">
             <img src="/hinge22.png" alt="Hinge Cabinetry" className="h-9 w-auto" />
           </a>
-          <a
-            href="#"
+          <button
+            onClick={onBack}
             className="inline-flex items-center gap-2 text-sm font-medium text-neutral-600 hover:text-brand-charcoal transition-colors"
           >
             <ArrowLeft size={16} />
             Back to Main Site
-          </a>
+          </button>
         </div>
       </nav>
 
       {/* Hero */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-surface-platinum">
-        <div className="max-w-4xl mx-auto px-6 md:px-12 text-center">
-          <p className="text-brand-charcoal/50 text-xs tracking-[0.3em] uppercase mb-4">Dealer Partnerships</p>
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-brand-charcoal leading-[1.1] mb-6">
-            Partner With Hinge
+      <section className="pt-28 pb-14 md:pt-36 md:pb-20 bg-brand-ink relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(241,90,36,0.08),transparent_70%)]" />
+        <div className="relative max-w-4xl mx-auto px-6 md:px-12 text-center">
+          <img
+            src="/hingeselect-logo_op1.png"
+            alt="Hinge Select"
+            className="h-12 md:h-16 w-auto mx-auto mb-8"
+          />
+          <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl text-white leading-[1.1] mb-5">
+            Dealer Program
           </h1>
-          <p className="text-neutral-600 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
-            We're expanding our network of authorized dealers and welcome inquiries from showrooms, design firms, and trade professionals who share our commitment to quality.
+          <p className="text-neutral-400 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+            Premium cabinetry built and finished in Plainfield, Illinois. The Select Series pairs the
+            Duncan chamfer shaker door with all-plywood construction, Blum hardware, and 20+ finish
+            options — delivered in 3 to 4 weeks.
           </p>
         </div>
       </section>
 
-      {/* Value Props */}
+      {/* Stats */}
       <section className="py-16 md:py-24 bg-white border-b border-neutral-100">
-        <div className="max-w-5xl mx-auto px-6 md:px-12">
-          <div className="grid md:grid-cols-3 gap-8 md:gap-12">
-            {[
-              {
-                title: 'Two Product Lines',
-                desc: 'Offer clients both full-custom precision cabinetry and our value-engineered Select Series — covering every project scope and budget.',
-              },
-              {
-                title: 'Dedicated Support',
-                desc: 'Our team works directly with dealer partners on quoting, design assist, and project coordination from spec to delivery.',
-              },
-              {
-                title: 'Quality Built In',
-                desc: 'Every unit ships with 3/4" plywood construction, premium Blum hardware, and our signature 1/16" tolerance standard.',
-              },
-            ].map(({ title, desc }) => (
-              <div key={title} className="text-center md:text-left">
-                <h3 className="text-brand-charcoal font-semibold text-lg mb-2">{title}</h3>
-                <p className="text-neutral-500 text-sm leading-relaxed">{desc}</p>
+        <div className="max-w-6xl mx-auto px-6 md:px-12">
+          <p className="text-select-flame text-xs tracking-[0.3em] uppercase text-center mb-3">At a Glance</p>
+          <h2 className="text-2xl md:text-3xl font-serif text-brand-charcoal text-center mb-14">
+            Why Dealers Choose Select
+          </h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {stats.map(({ icon: Icon, headline, sub }) => (
+              <div
+                key={headline}
+                className="group relative bg-surface-platinum rounded-xl p-6 border border-neutral-100 hover:border-select-flame/20 transition-all duration-300 hover:shadow-lg hover:shadow-select-flame/5"
+              >
+                <div className="w-10 h-10 rounded-lg bg-select-flame/10 flex items-center justify-center mb-4 group-hover:bg-select-flame/15 transition-colors">
+                  <Icon size={20} className="text-select-flame" />
+                </div>
+                <h3 className="text-brand-charcoal font-bold text-lg mb-1.5">{headline}</h3>
+                <p className="text-neutral-500 text-sm leading-relaxed">{sub}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Form Section */}
-      <section className="py-16 md:py-24 bg-white">
+      {/* Project Carousel */}
+      <section className="py-16 md:py-24 bg-surface-platinum border-b border-neutral-100">
+        <div className="max-w-6xl mx-auto px-6 md:px-12">
+          <p className="text-select-flame text-xs tracking-[0.3em] uppercase text-center mb-3">Installed</p>
+          <h2 className="text-2xl md:text-3xl font-serif text-brand-charcoal text-center mb-12">
+            Select in the Field
+          </h2>
+
+          <div
+            className="relative rounded-2xl overflow-hidden bg-brand-ink shadow-2xl"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            <div className="relative aspect-[16/10] md:aspect-[16/9]">
+              {carouselSlides.map((slide, i) => (
+                <div
+                  key={i}
+                  className="absolute inset-0 transition-opacity duration-700 ease-in-out"
+                  style={{ opacity: i === currentSlide ? 1 : 0 }}
+                >
+                  <img
+                    src={slide.src}
+                    alt={`Hinge Select — ${slide.finish}`}
+                    className="w-full h-full object-cover"
+                    loading={i === 0 ? 'eager' : 'lazy'}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                </div>
+              ))}
+
+              {/* Finish label */}
+              <div className="absolute bottom-5 left-5 md:bottom-8 md:left-8 z-10">
+                <span className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md text-white text-xs md:text-sm font-medium px-4 py-2 rounded-full border border-white/20">
+                  Duncan — {carouselSlides[currentSlide].finish}
+                </span>
+              </div>
+
+              {/* Nav arrows */}
+              <button
+                onClick={prevSlide}
+                className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/25 transition-colors border border-white/20"
+                aria-label="Previous"
+              >
+                <ChevronLeft size={20} />
+              </button>
+              <button
+                onClick={nextSlide}
+                className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/25 transition-colors border border-white/20"
+                aria-label="Next"
+              >
+                <ChevronRight size={20} />
+              </button>
+            </div>
+
+            {/* Dots */}
+            <div className="flex items-center justify-center gap-1.5 py-4 bg-brand-ink">
+              {carouselSlides.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentSlide(i)}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    i === currentSlide ? 'w-6 bg-select-flame' : 'w-1.5 bg-white/25 hover:bg-white/40'
+                  }`}
+                  aria-label={`Go to slide ${i + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Color Palette */}
+      <section className="py-16 md:py-24 bg-white border-b border-neutral-100">
+        <div className="max-w-6xl mx-auto px-6 md:px-12">
+          <p className="text-select-flame text-xs tracking-[0.3em] uppercase text-center mb-3">Finishes</p>
+          <h2 className="text-2xl md:text-3xl font-serif text-brand-charcoal text-center mb-4">
+            Full Color Palette
+          </h2>
+          <p className="text-neutral-500 text-sm text-center max-w-xl mx-auto mb-14">
+            Every paint and stain is available on the Duncan door. Need a color outside the palette?
+            Ask about ColorDrop custom color matching.
+          </p>
+
+          {/* Paints */}
+          <div className="mb-14">
+            <h3 className="text-xs tracking-[0.2em] uppercase text-neutral-400 mb-6 text-center">Paints</h3>
+            <div className="grid grid-cols-5 sm:grid-cols-10 gap-3 max-w-3xl mx-auto">
+              {paints.map((p) => (
+                <div key={p.name} className="flex flex-col items-center gap-2">
+                  <div
+                    className="w-full aspect-square rounded-lg shadow-sm border border-neutral-200 transition-transform duration-200 hover:scale-110 hover:shadow-md cursor-default"
+                    style={{ backgroundColor: p.hex }}
+                  />
+                  <span className="text-[10px] md:text-xs text-neutral-500 font-medium text-center leading-tight">
+                    {p.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Stains */}
+          <div>
+            <h3 className="text-xs tracking-[0.2em] uppercase text-neutral-400 mb-6 text-center">Stains</h3>
+            <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-11 gap-3 max-w-4xl mx-auto">
+              {stains.map((s) => (
+                <div key={s.name} className="flex flex-col items-center gap-2">
+                  <div className="w-full aspect-square rounded-lg shadow-sm border border-neutral-200 overflow-hidden transition-transform duration-200 hover:scale-110 hover:shadow-md cursor-default">
+                    <img src={s.image} alt={s.name} className="w-full h-full object-cover" loading="lazy" />
+                  </div>
+                  <span className="text-[10px] md:text-xs text-neutral-500 font-medium text-center leading-tight">
+                    {s.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Inquiry Form */}
+      <section className="py-16 md:py-24 bg-surface-platinum">
         <div className="max-w-2xl mx-auto px-6 md:px-12">
           <div className="text-center mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-brand-charcoal mb-3">Dealer Inquiry</h2>
-            <p className="text-neutral-500 max-w-md mx-auto">
+            <p className="text-select-flame text-xs tracking-[0.3em] uppercase mb-3">Get Started</p>
+            <h2 className="text-2xl md:text-3xl font-serif text-brand-charcoal mb-3">Dealer Inquiry</h2>
+            <p className="text-neutral-500 max-w-md mx-auto text-sm">
               Tell us about your business and we'll follow up to discuss partnership opportunities.
             </p>
           </div>
 
           {status === 'success' ? (
-            <div className="bg-surface-platinum border border-neutral-200 rounded-xl p-10 text-center">
+            <div className="bg-white border border-neutral-200 rounded-xl p-10 text-center shadow-sm">
               <div className="w-14 h-14 rounded-full bg-emerald-100 flex items-center justify-center mx-auto mb-5">
                 <CheckCircle size={28} className="text-emerald-600" />
               </div>
@@ -122,14 +375,14 @@ export default function DealerPage() {
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6" data-netlify="true" name="Dealer Inquiry">
+            <form onSubmit={handleSubmit} className="bg-white rounded-xl border border-neutral-200 p-8 md:p-10 shadow-sm space-y-6" data-netlify="true" name="Dealer Inquiry">
               <input type="hidden" name="form-name" value="Dealer Inquiry" />
               <p className="hidden">
                 <label>
                   Don't fill this out: <input name="bot-field" />
                 </label>
               </p>
-              {/* Contact Name */}
+
               <div>
                 <label htmlFor="dealer-name" className="flex items-center gap-2 text-sm font-medium text-brand-charcoal mb-2">
                   <User size={14} className="text-neutral-400" />
@@ -140,12 +393,11 @@ export default function DealerPage() {
                   type="text"
                   name="name"
                   required
-                  className="w-full border border-neutral-200 rounded-lg px-4 py-3 text-sm text-brand-charcoal placeholder:text-neutral-400 focus:outline-none focus:border-brand-charcoal/40 focus:ring-1 focus:ring-brand-charcoal/20 transition-colors"
+                  className="w-full border border-neutral-200 rounded-lg px-4 py-3 text-sm text-brand-charcoal placeholder:text-neutral-400 focus:outline-none focus:border-select-flame/40 focus:ring-1 focus:ring-select-flame/20 transition-colors"
                   placeholder="Your full name"
                 />
               </div>
 
-              {/* Business Name */}
               <div>
                 <label htmlFor="dealer-business" className="flex items-center gap-2 text-sm font-medium text-brand-charcoal mb-2">
                   <Building2 size={14} className="text-neutral-400" />
@@ -156,12 +408,11 @@ export default function DealerPage() {
                   type="text"
                   name="business_name"
                   required
-                  className="w-full border border-neutral-200 rounded-lg px-4 py-3 text-sm text-brand-charcoal placeholder:text-neutral-400 focus:outline-none focus:border-brand-charcoal/40 focus:ring-1 focus:ring-brand-charcoal/20 transition-colors"
+                  className="w-full border border-neutral-200 rounded-lg px-4 py-3 text-sm text-brand-charcoal placeholder:text-neutral-400 focus:outline-none focus:border-select-flame/40 focus:ring-1 focus:ring-select-flame/20 transition-colors"
                   placeholder="Company or showroom name"
                 />
               </div>
 
-              {/* Email & Phone */}
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="dealer-email" className="flex items-center gap-2 text-sm font-medium text-brand-charcoal mb-2">
@@ -173,7 +424,7 @@ export default function DealerPage() {
                     type="email"
                     name="email"
                     required
-                    className="w-full border border-neutral-200 rounded-lg px-4 py-3 text-sm text-brand-charcoal placeholder:text-neutral-400 focus:outline-none focus:border-brand-charcoal/40 focus:ring-1 focus:ring-brand-charcoal/20 transition-colors"
+                    className="w-full border border-neutral-200 rounded-lg px-4 py-3 text-sm text-brand-charcoal placeholder:text-neutral-400 focus:outline-none focus:border-select-flame/40 focus:ring-1 focus:ring-select-flame/20 transition-colors"
                     placeholder="you@company.com"
                   />
                 </div>
@@ -186,13 +437,12 @@ export default function DealerPage() {
                     id="dealer-phone"
                     type="tel"
                     name="phone"
-                    className="w-full border border-neutral-200 rounded-lg px-4 py-3 text-sm text-brand-charcoal placeholder:text-neutral-400 focus:outline-none focus:border-brand-charcoal/40 focus:ring-1 focus:ring-brand-charcoal/20 transition-colors"
+                    className="w-full border border-neutral-200 rounded-lg px-4 py-3 text-sm text-brand-charcoal placeholder:text-neutral-400 focus:outline-none focus:border-select-flame/40 focus:ring-1 focus:ring-select-flame/20 transition-colors"
                     placeholder="(555) 000-0000"
                   />
                 </div>
               </div>
 
-              {/* Location */}
               <div>
                 <label htmlFor="dealer-location" className="flex items-center gap-2 text-sm font-medium text-brand-charcoal mb-2">
                   <MapPin size={14} className="text-neutral-400" />
@@ -202,12 +452,11 @@ export default function DealerPage() {
                   id="dealer-location"
                   type="text"
                   name="location"
-                  className="w-full border border-neutral-200 rounded-lg px-4 py-3 text-sm text-brand-charcoal placeholder:text-neutral-400 focus:outline-none focus:border-brand-charcoal/40 focus:ring-1 focus:ring-brand-charcoal/20 transition-colors"
+                  className="w-full border border-neutral-200 rounded-lg px-4 py-3 text-sm text-brand-charcoal placeholder:text-neutral-400 focus:outline-none focus:border-select-flame/40 focus:ring-1 focus:ring-select-flame/20 transition-colors"
                   placeholder="City, state, or region you serve"
                 />
               </div>
 
-              {/* Message */}
               <div>
                 <label htmlFor="dealer-message" className="block text-sm font-medium text-brand-charcoal mb-2">
                   Tell Us About Your Business
@@ -216,8 +465,8 @@ export default function DealerPage() {
                   id="dealer-message"
                   name="message"
                   rows={4}
-                  className="w-full border border-neutral-200 rounded-lg px-4 py-3 text-sm text-brand-charcoal placeholder:text-neutral-400 focus:outline-none focus:border-brand-charcoal/40 focus:ring-1 focus:ring-brand-charcoal/20 transition-colors resize-none"
-                  placeholder="Briefly describe your business, clientele, and what interests you about carrying Hinge..."
+                  className="w-full border border-neutral-200 rounded-lg px-4 py-3 text-sm text-brand-charcoal placeholder:text-neutral-400 focus:outline-none focus:border-select-flame/40 focus:ring-1 focus:ring-select-flame/20 transition-colors resize-none"
+                  placeholder="Briefly describe your business, clientele, and what interests you about carrying Hinge Select..."
                 />
               </div>
 
@@ -231,11 +480,11 @@ export default function DealerPage() {
               <button
                 type="submit"
                 disabled={status === 'submitting'}
-                className="w-full bg-brand-charcoal text-white font-semibold px-6 py-3.5 rounded-lg hover:bg-brand-jet transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="w-full bg-select-flame text-white font-semibold px-6 py-3.5 rounded-lg hover:bg-select-rust transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {status === 'submitting' ? (
                   <>
-                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                     Sending...
                   </>
                 ) : (
@@ -257,7 +506,7 @@ export default function DealerPage() {
       {/* Footer */}
       <footer className="bg-brand-ink py-10">
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-4">
-          <img src="/hinge2.png" alt="Hinge Cabinetry" className="h-7 w-auto brightness-0 invert opacity-60" />
+          <img src="/hingeselect-logo_op1.png" alt="Hinge Select" className="h-7 w-auto opacity-60" />
           <p className="text-neutral-600 text-xs">&copy; 2026 Hinge Cabinetry. All rights reserved.</p>
         </div>
       </footer>

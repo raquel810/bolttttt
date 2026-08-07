@@ -8,6 +8,7 @@ import InteractiveGallery from './components/InteractiveGallery';
 import ContactForm from './components/ContactForm';
 import SelectDoorSelector from './components/SelectDoorSelector';
 import ProjectCarousel from './components/ProjectCarousel';
+import DealerPage from './components/DealerPage';
 
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -28,6 +29,27 @@ function useInView(threshold = 0.15) {
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [page, setPage] = useState<'main' | 'dealers'>(() =>
+    window.location.hash === '#dealers' ? 'dealers' : 'main'
+  );
+
+  useEffect(() => {
+    function onHash() {
+      if (window.location.hash === '#dealers') {
+        setPage('dealers');
+        window.scrollTo(0, 0);
+      } else if (page === 'dealers') {
+        setPage('main');
+        window.scrollTo(0, 0);
+      }
+    }
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
+  }, [page]);
+
+  if (page === 'dealers') {
+    return <DealerPage onBack={() => { window.location.hash = ''; setPage('main'); window.scrollTo(0, 0); }} />;
+  }
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -309,8 +331,8 @@ function App() {
         <div className="absolute inset-0 bg-white/60"></div>
         <div className="absolute inset-0 flex items-center justify-center">
           <img
-            src="/image.png"
-            alt="Hinge Pro"
+            src="/hingeselect-logo_op1.png"
+            alt="Hinge Select"
             className="h-16 md:h-24 w-auto object-contain drop-shadow-sm"
           />
         </div>
