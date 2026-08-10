@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Suspense, lazy } from 'react';
 import { Menu, X, ChevronDown, ArrowRight, Ruler, Layers, Shield, Clock, Sparkles, Phone, Mail, MapPin, Globe } from 'lucide-react';
 import CompareTable from './components/CompareTable';
 import ColorPalette from './components/ColorPalette';
@@ -8,7 +8,8 @@ import InteractiveGallery from './components/InteractiveGallery';
 import ContactForm from './components/ContactForm';
 import SelectDoorSelector from './components/SelectDoorSelector';
 import ProjectCarousel from './components/ProjectCarousel';
-import DealerPage from './components/DealerPage';
+
+const DealerPage = lazy(() => import('./components/DealerPage'));
 
 function useInView(threshold = 0.15) {
   const ref = useRef<HTMLDivElement>(null);
@@ -48,7 +49,7 @@ function App() {
   }, [page]);
 
   if (page === 'dealers') {
-    return <DealerPage onBack={() => { window.location.hash = ''; setPage('main'); window.scrollTo(0, 0); }} />;
+    return <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-pulse text-neutral-400">Loading…</div></div>}><DealerPage onBack={() => { window.location.hash = ''; setPage('main'); window.scrollTo(0, 0); }} /></Suspense>;
   }
 
   useEffect(() => {

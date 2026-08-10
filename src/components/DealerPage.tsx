@@ -297,17 +297,17 @@ export default function DealerPage({ onBack }: DealerPageProps) {
             onMouseLeave={() => setIsPaused(false)}
           >
             <div className="relative aspect-[16/10] md:aspect-[16/9]">
-              {carouselSlides.map((slide, i) => (
+              {[currentSlide, (currentSlide + 1) % carouselSlides.length].map((i) => (
                 <div
                   key={i}
                   className="absolute inset-0 transition-opacity duration-700 ease-in-out"
                   style={{ opacity: i === currentSlide ? 1 : 0 }}
                 >
                   <img
-                    src={slide.src}
-                    alt={`Hinge Select — ${slide.finish}`}
+                    src={carouselSlides[i].src}
+                    alt={`Hinge Select — ${carouselSlides[i].finish}`}
                     className="w-full h-full object-cover"
-                    loading={i === 0 ? 'eager' : 'lazy'}
+                    loading="eager"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                 </div>
