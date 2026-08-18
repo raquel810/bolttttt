@@ -10,9 +10,9 @@ export default {
           ink: '#10202E',
         },
         select: {
-          rust: '#A63A13',
-          flame: '#F15A24',
-          seashell: '#FFF1EB',
+          rust: '#5E6A72',
+          flame: '#7D8892',
+          seashell: '#F4F5F6',
         },
         surface: {
           white: '#FFFFFF',
